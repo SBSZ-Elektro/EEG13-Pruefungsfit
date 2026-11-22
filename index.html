@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prüfungsfit EEG 13 – SBSZ Bamberg · Abteilung Elektrotechnik</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdgAAAIACAIAAACuPuoRAAAABnRSTlMA/QD9AP2gEv1fAAAACXBIWXMAAC4jAAAuIwF4pT92AAAVv0lEQVR42u3dC6ocyREF0Abvwmhp3pW9idmE8QK8JBfYIHju6W998hORcS6BGI81T6Jf1lEoKrPqtomIyNTcfAQiIiAWEQGxSJwV+bc/7v9hzI/3/yACYqmibaLy/RIQS+LGNhe454wmtYBYsItmAbGYLSjDDQGxYBfNAmIxalCmGQJi0flqlgXEAl/FZQGxwJfIAmLhr4KygFjgC2UBsSBY2XohIOav0iMLiAW+CsoCYgQrRWQQC38VkQXE/FWKyCCWZv5SWBEZxKILVjgWEPNXKSKDWBCsiCwgRrBSOAaxIFgRWUDMX6VwDGKhsMKxgJi/ShEZxEJhpTyBE8QIVkp3DGJBsFI4BjGClSIyiAXBSrEYxBRWCscgFgQrRWQQI1gpFoOYwkopHIMYwUrhGMQIVkrhGMQUVgrHIEawUgrHIKawUjgGMYKVUiwGMYWVwjGIEayUwjGIKawUjkFMYaUUi0GMYKVwDGIKK6VwDGIEK8ViEFNYKYVjEFNYKRyDmMJKKRaDGMFK4RjEFFZKsRjEFFaKxSCmsFIKx7UhtjSVwjGIEayUYjGIVdVL8eGC/Pw/LSEWgxjB6rCwUy62n1/0/jejcAxiENdqbIOvPSuQxdUhtuZcM1amSrG0bta60vDqmlkMYgq7JMTSLb3wbpaygq/1bCmC2Kq14sX4ovTKvFFY8ddSVyC2NK1ssexLL9qb5aj4a3ahQExhK1hcDiC27BR/oWwxmxFbZ1ZtqPzjX79MLaxnEFPYem1J6v9+HFOREbd6QWxJWanraJsdaIvZPmLLyDJt6W+/+vs///rz48O/f/6XSWm2tp2ss3Ss0b7s3ov5gc77n/Pyp/3+903w3aOzCXLBFQ5iFdrfyNOGxVy2zkFsoXgQJXxDiExhEFsidZcmaqOhbLWDmMIlFmX8rQ7FUbbaQUzhxQlWJ245ztqAYc2DmMLrrMjr4jTfi6ZHrnYlBlWOwggO0gJXUHIBlC37chDjMvtaPMoui3Fc82goiCkcYgQ88tAEkQteodH/6k9hBEe7C0fkRCJb/CtDzM2CBO85jqxiPoTI+l8QYnTmWoU9dmtpinXHIAYxhedsB6bwAiIjeAWI6VmN4JcPPwPxrC0ly1zIW6rcKEzh8bPgl+C++2c15QPJfjmDmMJrrr9OsjA38snApNf1li0gRvBJgq+jgOA642MK54AYo0UaYTuF8552SXGNbzlzozCCRxK8syPGdNiPJfLFvqXNjcIUHk+wyv4MuYCX/JY5IKYwhTXC6TnekudGYQojGMpTOKZwCIhhSmFlWwWIQYxgBKvEHG+r5Ebh4hDjQ7XdHjfSBBBTWC+sFpw7z+W4psIgrgsxfdT9yZoeB0a6+rCtlRuFjSMcTcbxwz7l09/i5/+whxLbcrlRmMLeSK96n6JuaMW2YkBsHFHCYn+KHHokdI8PqokY26K5UVgvbBZR81zclN/tRTdADGK35mi4LMEjf6ubTISYrbMgpvDDbagx6CR91Oe53/PRu3zknQMxWPXCoXZrPbyotAeaBV9BcvST5C+I9cJ1O+IBd/AefHerEMfzIWYrhUPtmnjuhRE5d7gBYhAjWBU6eRx2ygxiCoPYWy3e6vDyx6//b6td20lb9dN/1QAxiFdQ2JayK5PKkRCsvY/74h9+IKawXriExYPZDf4t63Qv8fSNShCDOCvEzhyvdHkvsEPu+u8NxBQu0Qs/TPHGX8wBT9MmRfndn2pBts2da41BTGG98GSOL9qx3oW68wbgw+f24WPs9xjir8/Y1BeD2A06RwOqtMm+rdUhhiyFh+152spn/+63l5/tsMHFxUOGIAbxIgpHu6Xz7pzbnr8y8/fo4OL5yHWWYTGIKbzCaDj44w5OPPyBvKcb5OdnwOfaLQNiEGe9QRcW4ncbNt79JiG7zNhKa9wXYs4G7IXDHs3y+NpqHLd69B2IQRwI4hOLOI7IL59IieC5Ig97ZP71N5aCmMLJdg0nfXAMOgdPkCM8IbrsIgGxsxsTdqd9vn2Py+lbLIa9vMO9u8YQozaIwgHnws/sZlf4P//+y4f/mbo7HnbQruFXADGIB0Gcehyx810YoZB9+PFovfw6WTge89aStl8fxCCO0g4HfOvPy5d1BryKTlB7sVJwnOvZTyCmcLj9aokeh1iB3Sw0HzqAfm6xdd3PDmLmThtKvLwwUuyUGD9tSFHTRxmpX0pdF2LaRjvKHPOZElMumCz4RuuUh/31q/lyBbHq2A7vf7Bs/F4YvllQ9uTMNBDTNs5OiRQPfUcwjlkM4kWGEunGwV2vjSL+ThQ56RuzQAziNkt/50Qi/lACwQuIrC8OCjFwJw4l3t2aK3IvG76zRE43EwMxiLus9QhziYnv4qXt9N1v8Y/aP/yiIKZws1WeZVNEvwsAsqG6YzOKEBAztwfEvV9OnvTZEVQNyLF5MYhtWQt9arnhoicpjitYfKNwonY4xU5hCuMYxCBe/B5dhBnxgBfdQzMdxwOOLy9s8Y3C2uGG70VHcGWOUzyaNabFIDYdDrS++bgYx2EfRAViEKdXuNNcGItrWLzzdVksBjGFY61pGi7PcYTzn5FfdnejMIgv3qOjMI73j4yjLWMQU3iRjpjCLD4xqTCgOA8xdmu2w+/ufZsL4/jKCo/zpBQQl4Y4/r40W4ZZ3HtkHKE7BrF2+FcKjrs2EdQr2BqH2tAGYhCnuSnnQe8sbm5xqBMfOSDGbrXp8Lu/P1IYx512GYMYxCAe/WQ1IrM42jFoEFM4IsTPV8iwpQm+VS2O3BTPsvhGYRCPf7gajnHs3h2I7Vqb/KDhBSDe/vxquGeefv7N/c8HcZYLAcQgDtoOz93fs+q7OPXFIN4LMXZrbh8OtdFysRchL9A4L98Xg1g77B0zE0Qe6e8ynTKLQQzi8w3voXsjW6Q0bxu32CnCMYhBXLQd3m/xqkKFaoFTi7xwXxwFYvJ2gnj8fp2XjfDX38Z6Nm2ZszDHlQcUIC56my57O3zOplwtcEaRl+yLQWwuMflxl8uotK0YEC9jMYhL75f4eu9uGZi2pWNGkd1iEIP47Rt2F1BpqxR98bIQk3f57cPLtMPPKm0loy/OaDGIqw+I30G8CY4LQHx08xKIQdzrie8gxnFZjhNATN6FFf58uA5hy0A8nWMDChCD+GRrgDCtcUyLV314PIhL75fQEbM4PsehRhMgBvGgNccsHEfri5cfUIC4UDv8+RAdhVmcy+K5Y4pBEMN3VYg/v0CXUzjOYvH0eTGIQdzy4RIgBvEyw+I9f+0DcTmIw+4djvN6UCkocvMZxZ4nWEW2GMSDOuII224+98IUBvFKN+6GXXEgzvQM4iD7H20fliAcN58Uj2+HQZx+QPywehxrFn1xw8sqncUgngDxvcJTXpj08leHkTjlEQti+I65UzdxXvH8S2NIUkOcelsxiIdCPGuMtWe9YkimcNz2+ko6KQZxib1r73awgVjWs3hWrwNiRzkSvKdWWNzc4nfHRAdA3LaVAXHR1yOBWEJZ3OoqG9wRt7rjDWIdMYhlHYsnbkNqDDF8lxwQf1isuJEIFie90JpcTTri7hCHPVMHYlnV4sE79K83xTpiA2IQS/oBRfamGMQVB8TO1MliFk8/2XHxggJxuffUGRBLnQGFjhjEOeYSLJb1LE738g4QV5wRm0tIcIuzX3QgBvGu6cSPxWSRZSzO+/CWG4Vr3qzTEcuSA4oIf8sEMYhtIpZ1OL5+3T38FXDw7BjEjtXZQSya4k/7hZqg/PnkCIh1xDpiMSl+fEjxg8i9G2QQ64h1xMLiXbesr3D89SuAGMTaYTEpfvu63jHzYhCbSzjNIZri883sxe1rhy4xEOuIRUo0xQ/4NtxK8fkrgBjE3//854jUgbjHaOL5kBSIjSZ0xMLi75dh2wHx18cfg1hH/KkRIIgsbHGrIe/+v2uebopBXHdADGLJZfH1i/G+dW3YFF/fxAZiN+tEyjXFzfeuXbQYxDpikWWb4jFPi9+z+wLEoy0GsYA4+OGO5jfrLo6JQawjFqk1neh0pu7KdALEHS2e/r4WEIum+NyGs+tbkkCsIwaxaIq/QNy7NQZxlBnxlGdRg1g0xYcuyU6HOw6dYgVx35N1wacTyJCC04neV+WJ484gtmtCJJnF8S/JdydHQKwjBrFoigddkh82tIHY/ToQi+lEY5HffZ3nVzSBGMQsltIWHz1/MfiKAzGIRYo2xV074kP72EAMYpHSt+wGNMVfx8QgNiMWKTedmPhyHKMJELNYQNzrqcRXLjoQ94XY4yaExTHv1829NkHstXUgltJN8W+Fv770E8QgBrGAuPuYeGJTDGIQg1hMJ34ZTbhZx2KhcKGNEyAGMYiFxdEtBrHRhEgViMNeeiDWFLNYio6JQQxiEAuISzfFIAYxiAXEIAYxiwXEtUcT99cdiItCvOetASI6Yh0xi3XEAmIQKxCLmE4YTYAYxALivBB/PkgNYhCzWEwndMQgprCAeGmI9zxjE8QOOrNYQDxnKAHiOR1xkFd1fPgjmhQC4q5vqzsAMYsHTCcmvhpg560DkYXv1w27oEAcHeIpry/cOa4SWbsj/n1hdm2NH97G9O4CfHuzDsS9IX5QeHwvfP9LO18nNSFuhfLDZXWiwQJxlPt1I1H+ukp4IdUgvk7z89W0n2MQT4Y4yO07EEu1GfGYlvl5NAFiO9hALDriZi43v+JAPG5M/PAn5JRJsb0TsirEIy1uqPNbiFk85nxdzNEEiAXEI+cYOuLJ04k986Mpp32QIaYTw5plHfHkTWxu2QmFK0D8oV/+P7kgnnjWedaeYhALiEMFxJMPOhsTC4hBDOLJY2K37ATEIAaxphjEsgLEqT8cEE9risMOiFksOuIQELO4+GuTQCwgBrGzziAWEIMYxJpiFguIQQxiEAuFQcxc0wkWi3YYxKs3xZG3TIBYdMQg9iQ2FguIy0PM4gHTieD7iEEsIAaxMTGLhcK1Z8QgHvYkNk2xgBjEINYUs1hAHBViFoMYxAJiEDvZwWKhMIiBqykGsYAYxCBmsYC4NMQsZjGLJb7COmIQg1hEO6wjdsuOxVK7HTaaALGmWMRcAsQgZrFoh0HM4vUg3nPwGjcC4kEQs1hTDGIxlwCxppjFQmEQoxbELBYQz4WYxaYTIBYKg7i6xb/f5RH2jR70kVkQ64jVIIhTPD8eQEJhEBtQgFhAvDrELAYxi4XCIGYxi4XCOmLOToL4Z0bsNaNCYR0xZ/tCrCkWEIOYxTm2T7BYKLySwiDO0RT/DCWyQMxiCoMYxAs2xYkIBjGFKQziNS3OBTGhQMzijhCz2D42EAuFQVxuUmw6LBQGMYhNikEsFA4GMYunWPxDsEf/SHGFQQxik2IKU5jCIHbQDsRSWGEQs7jQpPjEL8EpClMYxBX74vuHAc3dXMEpBIMYxLUgHqbt/l+IVhQG8QSIWTxxQPHh5XVNHpV59KmbtKIwhUFc/a5dp/eK7vyytEIwhUFc3eIeT4s/JDuzQAzimRCzOMjjMXuMjO+/5oevDyz+UhjE1R9A8VLJiy7ff2VzCQqDGMQg3judmLJ9glwIpnAIiFm85Fm7PU0xvBAMYhCzeGj/+8wxwhCMYBCXhvjzjGLApIJiCAZxLIhZHOSu3bDBMcj4C+KIELM4zrnn5x+bn2kmGn8pDGIQv51OvPT3xPOAPuxa4xp/KQxiFu+9a3exNaYwfCkMYhY3sPjdGbw9Lj//HMz1EPP3Px/9b+9/XK9qLolbsy9E1Ug7KC4+icLeYX0riEHM4sYQH+VYRwxiCqeEmMWRh8UnGuT7n0lPEIMYxCA+bPGDuUefWUxhECMYxCy+anHDgx7oBDGIM0HM4pg7i69YzE0QIxjEIG42LDYaBjGIq0DM4oAWnz7Q4fKgMIJBzOI2w+Jzu4ldGywGcWKIWRzwrt1RiF0YFEYwiFncvikGMYhBXAtiFsc/+kxhEFMYxGr+sNizLllMYRCr7hBvf36Xh+e+U5jCtSBmcUCL94wmXBIgRjCI1bg3jXrEGogpvD7ELM514s7FAGIKg1jNtNiVAGIKLwsxi7NY7EoAMYJBrKbduKMwiBG8PsQsjm+xywDEIAaxmmmxawDECC4BMYsDWvybYxcAiBEMYjXZYqEwggtBzGIWy3oW+4aCGMQCYv6CmMU4FhALiJUVTGH+gpjFLJbFLfZdWxBiFrOYwln8pTCIFYtBrAsGMYtZLJUs9t0BsWIxiI0gQMxiFksZhX0vQAxiFoN4Jr4gBjGLWYxjMwcBMYslHs33P56gFrggZjGLRQTEisUiIGYxi0UkMcQsZrEIiEHMYhEpDzGLWSwCYhCzWETKQ8xiFouAmMU4FhEQg5jFIiBmMYtFBMQsZrEIiEHMYhEBMYtZLAJiEONYRMpDzGIWi4CYxSwWERCzmMUiIAYxjkUExCxmsQiIWcxiEQExiHEsAmIWKxaLgJjFLBYBMYgVjkVAzGIWi4CYxQrHIiBmMYtFQAxihWMRELOYxSIgZrHCsQiIWcxiERCDWOFYBMQsZrEIiEGscCwCYhbjWATELFYsFgExi3EsAmIWKxyLgJjFOBYBMYgVi0VAzGIii4CYxYrFIiBmMZFFQAxixWIRELOYyCIgxrFisQiIQUxkERCzWOFYBMQsJrIIiFmsWCwCYhYTWQTEIFZEFgExi3EsAmIcKyKLgBjERBYBMYsVkUVAzGKFYwExixWLRUDMYgViATGLFYhFQMxiBWIBMYsViEVAzGIKi4CYxQrEIiBmMYhFQAxiRWEREOMYxCIgZrECsaDGR8BiEIuAmMUKxAJiYTGFRUDMYgViAbGwGMQiIGaxArGAWFgMYhEQs1hRWEAsLAaxCIhxrEAsIBYQg1gExDhWFBYQC4tBLAJiFisQC4iFxSAWATGLFYgFxIJjCouAGMQKxAJiwTGIRUDMYgViAbHgmMIiIAaxArGAWHAMYhEQs1iBWEAsOKawCIhBrEAsIBYcg1gExCxWIBYQC45BLAJiECsKC4gFxyAWATGOFYgFxMJiEIuAmMUKxAJiwTGFRUDMYgViAbHgGMQiIGaxorCAWHAMYhEQs1iBWEAsOAaxCIhZrEAsIBYcU1gExCwGsQiIBccgFgExjkEsAmJhMYhFQIxjEIuAWFhMYREQ4xjEIiAWHFNYBMRShGPfZQGxsBjEIiCW2hz75gqIBccgFgGxFObYd1NALDgGsQiIpbbFvokCYsExiEVALLVF9l0TEAuOKSwCYilsse+UgFhwDGIREEthkX1fBMSCYxaLgFhqc+x7ISAWHINYBMRSm2Ofv4BYZLLIPnYBschMjn3aAmKRySL7kAXEIpM59vEKiEUmi+xTFRCLzOTYhykgFpksss9QQCwyWWQfnYBYZLLIPjEBschMjn1QAmKRySj7cATEIpNF9pkIiEXmcPzzowiIRUQExCIi+fNf9nPR4kFmhDoAAAAASUVORK5CYII=">
+<style>
+/* Farben und Schrift nach den Vorlagen „Arbeitsblatt / Leistungsnachweis SBSZ Bamberg ET“ */
+:root{
+ --blau:#005CA9;--blau-hell:#E8F0F9;--blau-linie:#C9D9EC;--blau-flaeche:#F2F6FB;--blau-zart:#DCE8F5;
+ --gruen-logo:#94C01C;--gelb-logo:#FCCC03;
+ --gruen:#2E8B22;--gruen-hell:#EAF5E6;
+ --gelb-hell:#FFF7D6;
+ --rot:#C62828;--rot-hell:#FDECEA;
+ --grau:#6B6B6B;--grau-hell:#9A9A9A;--linie:#C8C8C8;--formel:#F3F3F3;
+ --text:#1E1E1E;--bg:#F7F8FA
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Calibri,Carlito,"Segoe UI",Arial,sans-serif;font-size:16px;background:var(--bg);color:var(--text);line-height:1.45}
+a{color:var(--blau)}
+
+/* Kopf wie in der Vorlage: Logo · Schulname · blaues Etikett, darunter Farbstreifen */
+header{background:#fff;position:sticky;top:0;z-index:5;box-shadow:0 1px 0 var(--linie)}
+.kopf{max-width:1050px;margin:0 auto;padding:10px 18px 0;display:flex;align-items:center;gap:12px}
+.kopf img{height:46px;width:auto;display:block}
+.kopf .schule{flex:1;min-width:0}
+.kopf .schule b{display:block;color:var(--blau);font-size:17px;line-height:1.2}
+.kopf .schule span{display:block;color:var(--grau);font-size:13px}
+.kopf .etikett{background:var(--blau);color:#fff;text-align:center;padding:7px 18px;min-width:190px}
+.kopf .etikett small{display:block;font-weight:bold;letter-spacing:.12em;font-size:12px}
+.kopf .etikett span{display:block;color:var(--blau-zart);font-size:13px}
+.kopf .etikett span b{color:#fff;font-size:17px}
+.streifen{max-width:1050px;margin:8px auto 0;padding:0 18px}
+.streifen div{height:5px;background:linear-gradient(90deg,var(--blau) 0 72%,var(--gruen-logo) 72% 90%,var(--gelb-logo) 90% 100%)}
+
+nav{max-width:1050px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap;padding:10px 18px}
+nav button{border:1px solid var(--blau-linie);background:#fff;color:var(--text);border-radius:4px;padding:6px 13px;cursor:pointer;font:inherit;font-size:15px}
+nav button:hover{background:var(--blau-flaeche)}
+nav button.aktiv{background:var(--blau);color:#fff;border-color:var(--blau)}
+
+main{max-width:1050px;margin:0 auto;padding:18px}
+/* Überschriften wie „Thema“ / „Überschrift 1“ / „Abschnitt“ */
+h2{color:var(--blau);margin:4px 0 12px;font-size:24px;padding-bottom:4px;border-bottom:1px solid var(--blau-linie)}
+h3{margin:16px 0 8px;font-size:17px;color:var(--text)}
+.karte{background:#fff;border:1px solid var(--blau-linie);border-radius:4px;padding:18px;margin-bottom:14px}
+
+/* Kästen wie in der Vorlage */
+.hinweis,.info{background:var(--blau-hell);border-left:6px solid var(--blau);padding:10px 14px;font-size:15px}
+.merke{background:var(--gelb-hell);border-left:6px solid var(--gelb-logo);padding:10px 14px;margin:10px 0}
+.challenge{border-left:6px solid var(--gelb-logo)}
+.achtung{background:var(--rot-hell);border-left:6px solid var(--rot);padding:10px 14px}
+
+.raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.station{background:#fff;border:1px solid var(--blau-linie);border-top:4px solid var(--blau);border-radius:4px;padding:14px;cursor:pointer;position:relative;transition:transform .1s,box-shadow .1s}
+.station:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,92,169,.15)}
+.station.ok{border-top-color:var(--gruen-logo)}
+.station .icon{font-size:30px}
+.station h3{margin:6px 0 4px;color:var(--blau)}
+.station p{margin:0;font-size:14px;color:var(--grau)}
+.balken{height:8px;background:var(--blau-hell);overflow:hidden;margin-top:10px}
+.balken div{height:100%;background:var(--gruen-logo)}
+.status{font-size:13px;margin-top:6px;color:var(--grau)}
+.badge{position:absolute;top:10px;right:10px;font-size:12px;padding:2px 8px;background:var(--blau-hell);color:var(--blau)}
+.badge.ok{background:var(--gruen);color:#fff}
+
+.tabs{display:flex;gap:6px;margin:6px 0 14px;flex-wrap:wrap;border-bottom:1px solid var(--blau-linie)}
+.tabs button{border:none;border-bottom:3px solid transparent;background:none;padding:8px 10px;cursor:pointer;font:inherit;font-size:15px;color:var(--text);margin-bottom:-1px}
+.tabs button.aktiv{border-color:var(--blau);color:var(--blau);font-weight:bold}
+
+.btn{background:var(--blau);color:#fff;border:none;border-radius:4px;padding:9px 16px;cursor:pointer;font:inherit;font-size:15px}
+.btn:hover{background:#004A8A}
+.btn.zweit{background:#fff;color:var(--blau);border:1px solid var(--blau)}
+.btn.zweit:hover{background:var(--blau-flaeche)}
+.btn.gruen{background:var(--gruen)}
+.btn:disabled{opacity:.5;cursor:default}
+
+.flip{perspective:1000px;height:220px;margin:10px 0}
+.flip .innen{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.flip.um .innen{transform:rotateY(180deg)}
+.seite{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--blau-linie);border-left:6px solid var(--blau);background:var(--blau-flaeche);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:19px}
+.seite.rueck{transform:rotateY(180deg);background:var(--gruen-hell);border-color:var(--gruen);color:var(--gruen);font-size:17px}
+.fach{display:flex;gap:8px;margin:8px 0;font-size:14px;flex-wrap:wrap}
+.fach span{padding:3px 10px;background:var(--blau-hell)}
+
+.frage{font-size:18px;margin:6px 0 10px}
+.optionen label{display:block;border:1px solid var(--blau-linie);padding:9px 12px;margin:6px 0;cursor:pointer;background:#fff}
+.optionen label:hover{background:var(--blau-flaeche)}
+.optionen label.richtig{background:var(--gruen-hell);border-color:var(--gruen)}
+.optionen label.falsch{background:var(--rot-hell);border-color:var(--rot)}
+input[type=text],select{font:inherit;font-size:16px;padding:7px 9px;border:1px solid var(--grau-hell);border-radius:3px}
+input[type=text]:focus,select:focus{outline:2px solid var(--blau);outline-offset:1px}
+#eing,#treing{width:150px}
+.feedback{margin-top:10px;padding:10px 14px;font-size:15px}
+.feedback.ok{background:var(--gruen-hell);border-left:6px solid var(--gruen)}
+.feedback.ok b{color:var(--gruen)}
+.feedback.nein{background:var(--rot-hell);border-left:6px solid var(--rot)}
+.zuord{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;max-width:640px}
+.fortschritt{font-size:14px;color:var(--grau);margin-bottom:6px}
+
+/* Tabellen wie in der Vorlage: blauer Kopf, hellblaue Linien */
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--blau-linie);padding:7px 8px;text-align:left;vertical-align:top}
+th{background:var(--blau);color:#fff}
+.woche.erledigt{background:var(--gruen-hell)}
+.ergebnis{font-size:24px;font-weight:bold;color:var(--blau)}
+.klein{font-size:14px;color:var(--grau)}
+.formel{font-family:"Cambria Math",Georgia,serif;font-size:17px;background:var(--formel);padding:8px;text-align:center}
+
+/* Fußzeile wie in der Vorlage */
+footer{max-width:1050px;margin:20px auto;padding:6px 18px 0;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--grau)}
+footer .linie{border-top:1px solid var(--linie);width:100%}
+svg text{font-family:Calibri,Carlito,Arial,sans-serif}
+@media(max-width:640px){
+ header{position:static}
+ .kopf .etikett{display:none}
+ .kopf .schule b{font-size:15px}
+ .zuord{grid-template-columns:1fr}
+}
+@media print{header{position:static}nav,.btn{display:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="kopf">
+  <img src="data:image/png;base64,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" alt="Logo SBSZ Bamberg">
+  <div class="schule"><b>Staatliches Berufliches Schulzentrum Bamberg</b><span>Abteilung Elektrotechnik · EEG 13 · Gesellenprüfung Informationselektroniker</span></div>
+  <div class="etikett"><small>PRÜFUNGSFIT</small><span>Klasse <b>EEG 13</b></span></div>
+ </div>
+ <div class="streifen"><div></div></div>
+ <nav id="nav"></nav>
+</header>
+<main id="app"></main>
+<footer><div class="linie"></div><span>SBSZ Bamberg · Abteilung Elektrotechnik</span><span>Prüfungsvorbereitung EEG 13 · GuS · ÜK · Elektrotechnische Grundlagen</span></footer>
+
+<script>
+/* =========================================================
+   Prüfungsfit EEG 13 – SBSZ Bamberg, Abteilung Elektrotechnik
+   Inhalte: Karteikarten, Quiz, Rechentrainer, 8-Wochen-Plan
+   Speicherung nur lokal im Browser (keine personenbezogenen Daten)
+   ========================================================= */
+
+const BEREICHE = [
+ {id:"ema", icon:"🔐", titel:"Einbruchmeldeanlagen", kurz:"EMA", text:"Normen, VdS-Klassen, Melder, Zwangsläufigkeit, Akku"},
+ {id:"bma", icon:"🔥", titel:"Brandmeldeanlagen", kurz:"BMA", text:"Komponenten, Melderwahl, A_M und D_H, Ansteuerungen"},
+ {id:"ant", icon:"📡", titel:"Antennentechnik", kurz:"ANT", text:"Frequenzen, Pegel, Mast, Erdung, SAT-ZF, Multischalter"},
+ {id:"elek", icon:"💡", titel:"Transistor und LED", kurz:"ELEK", text:"NPN-Transistor als Schalter, LED mit Vorwiderstand"},
+ {id:"span", icon:"⚡", titel:"Leistung, Spannungsfall und PoE", kurz:"U·I", text:"P = U · I, Spannungsfall auf Melder- und Sirenenleitungen, PoE"},
+ {id:"energie", icon:"💶", titel:"Energiekosten", kurz:"€", text:"kWh, Kosten pro Jahr, zwei Geräte vergleichen"},
+ {id:"fehler", icon:"🔎", titel:"Fehlersuche", kurz:"FEHLER", text:"Störungsfälle aus EMA, BMA, SAT und Elektronik"}
+];
+
+/* ---------- Karteikarten ---------- */
+const KARTEN = {
+ ema:[
+  ["Was regelt DIN VDE 0833 Teil 3?","Einbruch- und Überfallmeldeanlagen (EMA/ÜMA)."],
+  ["Was bedeutet der Grad nach DIN EN 50131?","Einstufung von Grad 1 bis 4 nach Risiko und Täterprofil (Kenntnisse, Werkzeug)."],
+  ["Welche VdS-Klasse braucht ein Juwelier?","Klasse C (Sicherungsklassen SG-3 bis SG-6)."],
+  ["VdS-Klasse A und B – typische Objekte?","A: Wohnung, Einfamilienhaus (SH-1 bis SH-3).<br>B: Büro, Laden (bis SG-2)."],
+  ["Nenne die vier Überwachungsarten.","Freiland-, Außenhaut-, Raum- und Objektüberwachung."],
+  ["Fallenmäßig – schwerpunktmäßig?","Fallenmäßig: Bereiche, die der Täter durchqueren muss (Flur, Treppe).<br>Schwerpunktmäßig: besonders gefährdete Bereiche (Tresorraum)."],
+  ["Wie funktioniert ein PIR-Melder?","Passiv: erkennt Änderungen der Wärmestrahlung, wenn sich ein warmer Körper durch mehrere Zonen bewegt."],
+  ["Glasbruchmelder: passiv – aktiv – akustisch?","Passiv: Schwingungen der Scheibe (Klasse A, B).<br>Aktiv: Sender/Empfänger auf der Scheibe (Klasse C Pflicht).<br>Akustisch: Mikrofon, zweistufig."],
+  ["Was bedeutet Zwangsläufigkeit?","Scharfschalten nur, wenn alle Melder in Ruhe sind und keine Störung oder Sabotage ansteht – und niemand versehentlich den scharfen Bereich betritt."],
+  ["Intern scharf – extern scharf?","Intern: Personen im Objekt, Außenhaut überwacht, interner Alarm.<br>Extern: niemand im Objekt, alle Meldegruppen aktiv, externer Alarm."],
+  ["Wozu dient der Sabotagekontakt?","Meldet Öffnen oder Abreißen eines Geräts – immer, auch bei unscharfer Anlage (24 h)."],
+  ["Max. Melder je Meldegruppe?","Einbruchmeldegruppe 20 Melder · Sabotagemeldegruppe 10 Melder."],
+  ["Montage Außensignalgeber?","Außerhalb des Handbereichs (ca. über 3 m), ohne Hilfsmittel nicht erreichbar, gut wahrnehmbar."],
+  ["Wo wird die EMZ montiert?","Im Sicherungsbereich, nicht für jedermann zugänglich, von außen nicht erkennbar."],
+  ["AWAG oder AWUG?","AWAG: Wähl- und Ansagegerät → Privatpersonen.<br>AWUG: Wähl- und Übertragungsgerät → Notruf- und Serviceleitstelle."],
+  ["Überbrückungszeit Akku Klasse A / B und C?","A: 12 h · B/C: 60 h (30 h bei Störungsweiterleitung an ständig besetzte Stelle). Dazu 60 s akustisch + 30 min optisch."],
+  ["Formel Akkukapazität EMA?","K = t · I_R + 1/60 h · ΣI_ak + 0,5 h · I_opt"]
+ ],
+ bma:[
+  ["Schutzziele einer BMA?","Schutz von Personen, Sachwerten und Umwelt durch frühe Branderkennung und Alarmierung."],
+  ["BMZ – FBF – FAT?","Brandmelderzentrale · Feuerwehr-Bedienfeld · Feuerwehr-Anzeigetableau."],
+  ["FSD und FSE?","FSD: Feuerwehr-Schlüsseldepot.<br>FSE: Freischaltelement – Feuerwehr löst Alarm aus, damit das FSD öffnet."],
+  ["Was zeigt die Blitzleuchte?","Den Feuerwehrzugang mit FSD, FBF und FAT."],
+  ["Handfeuermelder – Hausalarm-Handmelder?","Rot, alarmiert die Feuerwehr · Blau, nur interner Alarm."],
+  ["Handfeuermelder: Montagehöhe?","1,4 m ± 0,2 m, an Flucht- und Rettungswegen."],
+  ["Prinzip optischer Rauchmelder?","Streulicht: Rauchpartikel streuen LED-Licht auf eine Fotodiode."],
+  ["Maximal- und Differentialmelder?","Maximal: feste Temperatur (z. B. 58 °C).<br>Differential: schneller Temperaturanstieg."],
+  ["Vorteil Mehrkriterienmelder?","Wertet z. B. Rauch, Wärme und CO aus → sicherere Erkennung, weniger Falschalarme."],
+  ["Melder für Teeküche – Büro – hohe Halle?","Wärmemelder · optischer Rauchmelder · linienförmiger Rauchmelder oder Ansaugrauchmelder."],
+  ["Was bedeuten A_M und D_H?","A_M: max. Überwachungsfläche je Melder.<br>D_H: max. Abstand vom Melder zu jedem Punkt der Decke."],
+  ["Wie prüfst du das Melderraster?","Für jedes Feld: Fläche ≤ A_M und r = √((a/2)² + (b/2)²) ≤ D_H."],
+  ["Nenne vier Brandfallsteuerungen.","Brandschutztüren schließen, Aufzüge in Evakuierungsebene, Lüftung aus, RWA öffnen."],
+  ["Inspektion – Wartung?","Inspektion vierteljährlich · Wartung mindestens jährlich (Fachfirma)."],
+  ["Wer setzt die BMA nach Feueralarm zurück?","Die Feuerwehr, nachdem sie die Ursache geprüft hat."],
+  ["Akku der BMZ?","72 h Überbrückung (30 h bei Störungsweiterleitung) + 30 min Alarm: K = t · I_R + 0,5 h · I_A"],
+  ["Wie funktioniert ein Ansaugrauchmelder und wo wird er eingesetzt?","Ein Lüfter saugt über ein Rohrnetz mit Ansaugöffnungen ständig Luft aus dem Raum an und prüft sie in einer Messkammer sehr empfindlich auf Rauch. Einsatz: hohe Hallen, Serverräume, Kühllager und dort, wo Melder schwer zu warten oder unsichtbar sein sollen (z. B. Museen)."],
+  ["Vorteil Ringbus mit adressierbaren Meldern?","Bei Leitungsbruch fällt kein Melder aus; die BMZ zeigt genau, welcher Melder ausgelöst hat."]
+ ],
+ ant:[
+  ["Frequenzbereiche UKW und DAB+?","UKW 87,5–108 MHz · DAB+ 174–230 MHz (Band III)."],
+  ["Frequenzbereich DVB-T2?","470–694 MHz (Kanal 21–48)."],
+  ["Downlink und Sat-ZF?","Downlink 10,7–12,75 GHz · Sat-ZF 950–2150 MHz."],
+  ["Wo stehen TV-Satelliten?","Ca. 36 000 km über dem Äquator (geostationär), z. B. ASTRA 19,2° Ost."],
+  ["LOF Low-Band / High-Band?","9,75 GHz / 10,6 GHz · Grenze bei 11,7 GHz."],
+  ["Wie schaltet der Receiver Band und Polarisation um?","14 V vertikal / 18 V horizontal · 22 kHz = High-Band."],
+  ["Quattro- oder Quad-LNB?","Quattro: 4 Ebenen für Multischalter.<br>Quad: 4 Receiver direkt."],
+  ["Was bedeutet Multischalter 5/8?","5 Eingänge (4 Sat-Ebenen + 1 terrestrisch), 8 Teilnehmerausgänge."],
+  ["Was ist Unicable?","Mehrere Receiver an einer Leitung – jeder Receiver bekommt ein eigenes Userband (EN 50494/50607)."],
+  ["Wozu dient DiSEqC?","Steuerprotokoll Receiver → Multischalter/LNB, z. B. Umschalten zwischen Satelliten."],
+  ["Verteiler – Abzweiger?","Verteiler: alle Ausgänge gleiche Dämpfung.<br>Abzweiger: kleiner Durchgang, hohe Abzweigdämpfung."],
+  ["Wozu dient der 75-Ω-Abschlusswiderstand?","Schließt offene Ausgänge ab und verhindert Reflexionen."],
+  ["Pegel in dBµV aus Spannung?","L = 20 · lg(U / 1 µV) · 60 dBµV = 1 mV."],
+  ["Pegel an der Dose berechnen?","L_A = L_E + V − alle Dämpfungen (Kabel, Verteiler, Abzweiger, Dose)."],
+  ["Sollpegel an der Sat-Dose?","Ca. 47–77 dBµV."],
+  ["Biegemoment am Mast?","M = F · l (l ab Einspannstelle), alle Antennen addieren, mit zulässigem Moment vergleichen."],
+  ["Wann muss die Antenne nicht geerdet werden?","Mind. 2 m unter Dachkante und höchstens 1,5 m von der Wand entfernt."],
+  ["Mindestquerschnitte Erdung / Potentialausgleich?","Erdungsleiter 16 mm² Cu · Potentialausgleich 4 mm² Cu."],
+  ["Abstand zu Freileitungen?","Bis 1000 V mind. 1 m · über 1000 V mind. 3 m."],
+  ["BER und MER?","BER: Bitfehlerrate, je kleiner desto besser.<br>MER: Modulationsfehlerverhältnis in dB, je größer desto besser."]
+ ],
+ elek:[
+  ["Anschlüsse eines NPN-Transistors?","Basis (B), Kollektor (C), Emitter (E)."],
+  ["Wie steuert der Transistor?","Ein kleiner Basisstrom I_B steuert einen großen Kollektorstrom I_C: I_C = B · I_B."],
+  ["U_BE eines Si-Transistors, wenn er leitet?","ca. 0,7 V."],
+  ["Transistor als Schalter: EIN?","Übersteuert (gesättigt): U_CE ≈ 0,2 V, die Last bekommt fast die volle Spannung."],
+  ["Transistor als Schalter: AUS?","Gesperrt: I_C ≈ 0, U_CE ≈ U_B."],
+  ["Warum ein Basisvorwiderstand?","Er begrenzt den Basisstrom und schützt die Basis-Emitter-Strecke."],
+  ["Formel Basisvorwiderstand?","R_B = (U_St − U_BE) / I_B"],
+  ["Was ist der Übersteuerungsfaktor?","I_B wird 2- bis 5-mal größer gewählt als I_C / B – so schaltet der Transistor sicher durch."],
+  ["Wozu dient die Freilaufdiode am Relais?","Sie schützt den Transistor vor der hohen Induktionsspannung beim Abschalten der Spule."],
+  ["Warum braucht eine LED einen Vorwiderstand?","Sie hat kaum Eigenwiderstand – der Strom muss auf I_F begrenzt werden."],
+  ["Formel Vorwiderstand?","R_V = (U_B − U_F) / I_F"],
+  ["Mehrere LEDs in Reihe?","R_V = (U_B − n · U_F) / I_F"],
+  ["Typische Durchlassspannungen?","Rot ca. 2 V · Grün ca. 2,2 V · Blau/Weiß ca. 3–3,2 V."],
+  ["Woran erkennst du die Kathode der LED?","Kürzeres Bein, abgeflachte Seite am Gehäuse."],
+  ["Welchen Widerstandswert wählst du?","Den nächstgrößeren Normwert (E12), damit der Strom nicht zu groß wird."]
+ ],
+ span:[
+  ["Ohmsches Gesetz?","U = R · I"],
+  ["Formeln für die Leistung?","P = U · I · P = I² · R · P = U² / R"],
+  ["Leitungswiderstand Zweidrahtleitung?","R_L = 2 · l / (γ · A)"],
+  ["Formel Spannungsfall?","ΔU = 2 · l · I / (γ · A)"],
+  ["Prozentualer Spannungsfall?","Δu = ΔU / U · 100 %"],
+  ["Erforderlicher Querschnitt?","A = 2 · l · I / (γ · ΔU)"],
+  ["Leitfähigkeit γ von Kupfer und Aluminium?","Cu 56 m/(Ω·mm²) · Al 35 m/(Ω·mm²)"],
+  ["Querschnitt einer Ader mit d = 0,8 mm?","A = π/4 · d² = 0,50 mm²"],
+  ["Was passiert mit ΔU bei doppelter Leitungslänge?","Er verdoppelt sich."],
+  ["Warum ist ΔU bei EMA/BMA so wichtig?","Bei 12/24 V machen schon kleine Spannungsfälle viel aus – Sirenen und Melder brauchen eine Mindestspannung."],
+  ["Wie verringerst du den Spannungsfall?","Größerer Querschnitt (Adern parallel), kürzere Leitung, höhere Betriebsspannung."],
+  ["Warum ist 24 V günstiger als 12 V?","Bei gleicher Leistung halber Strom → halber Spannungsfall, und er ist prozentual noch kleiner."],
+  ["Verlustleistung auf der Leitung?","P_V = I² · R_L"],
+  ["Leistung einer Sirene mit 12 V und 0,5 A?","P = 12 V · 0,5 A = 6 W"],
+  ["Was ist PoE?","Power over Ethernet: Daten und Energie über dasselbe Netzwerkkabel – z. B. für IP-Kameras, WLAN-Access-Points oder IP-Telefone. Kein eigenes Netzteil am Gerät nötig."],
+  ["PoE-Standards und Leistung je Port?","IEEE 802.3af: 15,4 W (am Gerät ca. 13 W)<br>802.3at (PoE+): 30 W<br>802.3bt (PoE++): bis 90 W"],
+  ["Maximale Leitungslänge bei PoE?","100 m (wie bei Ethernet über Twisted-Pair-Kabel)."],
+  ["Was ist das PoE-Budget eines Switches?","Die Gesamtleistung, die der Switch an allen Ports zusammen liefern kann. Die Summe der Geräte muss darunter bleiben."]
+ ],
+ energie:[
+  ["Formel elektrische Arbeit?","W = P · t"],
+  ["Wie rechnest du W in kWh?","P in kW (W : 1000) mal Zeit in Stunden."],
+  ["Energiekosten?","Kosten = W in kWh · Preis in €/kWh"],
+  ["Stunden pro Jahr bei Dauerbetrieb?","24 h · 365 = 8760 h"],
+  ["Herd mit 2 kW läuft 30 min – Energie?","W = 2 kW · 0,5 h = 1 kWh"],
+  ["Wie vergleichst du zwei Geräte?","Jahresverbrauch beider Geräte berechnen → Kosten → Differenz = Ersparnis pro Jahr."],
+  ["Was ist die Amortisationszeit?","Mehrpreis des sparsameren Geräts : Ersparnis pro Jahr."],
+  ["Was ist Standby-Verbrauch?","Leistung im Bereitschaftsbetrieb – läuft oft 20 h am Tag. Abhilfe: schaltbare Steckdosenleiste."],
+  ["Was steht auf dem Energielabel?","Effizienzklasse A–G und der Energieverbrauch, z. B. kWh pro Jahr."],
+  ["Wirkungsgrad?","η = P_ab / P_zu (immer kleiner als 1 bzw. 100 %)."],
+  ["Wie setzt sich der Strompreis zusammen?","Arbeitspreis je kWh + Grundpreis pro Monat. In Rechenaufgaben meist nur der Arbeitspreis."],
+  ["1 kWh – was kann man damit z. B. machen?","Eine 10-W-LED 100 Stunden leuchten lassen."]
+ ],
+ fehler:[
+  ["EMA: „MG 3 nicht in Ruhe“ – Scharfschalten geht nicht.","Kein Defekt: Zwangsläufigkeit. In Meldegruppe 3 ist ein Fenster oder eine Tür offen bzw. nicht verriegelt."],
+  ["EMA: Sabotagealarm in der Nacht, Anlage unscharf.","Sabotagekontakt hat ausgelöst: Gehäusedeckel offen, Gerät beschädigt oder Leitung unterbrochen. Vor Ort prüfen."],
+  ["BMA: Feueralarm in der Werkstatt nach Schweißarbeiten.","Rauchmelder durch Schweißrauch ausgelöst. Künftig Melder vorher abschalten lassen (Freigabe) – und danach wieder einschalten."],
+  ["SAT: Bildaussetzer bei Regen in allen Wohnungen.","Zentraler Fehler: Antenne verdreht, LNB feucht oder defekt, Stecker am LNB korrodiert. Pegel und MER messen."],
+  ["SAT: Nur eine Wohnung hat kein Bild.","Fehler auf dem Weg zu dieser Wohnung: Leitung, F-Stecker, Dose oder Multischalterausgang."],
+  ["SAT: Viele Sender fehlen, andere gehen.","Eine Empfangsebene fehlt, z. B. kein High-Band (22 kHz) oder keine horizontalen Programme (18 V)."],
+  ["LED leuchtet nicht.","Verpolt eingebaut (Kathode an Plus) oder Unterbrechung im Stromkreis."],
+  ["LED leuchtet kurz sehr hell und ist dann kaputt.","Vorwiderstand fehlt oder ist viel zu klein – der Strom war zu groß."],
+  ["Relais zieht nicht an, Transistor wird warm.","Transistor nicht gesättigt: Basisstrom zu klein (R_B zu groß)."],
+  ["Transistor geht beim Abschalten des Relais kaputt.","Freilaufdiode fehlt – die Induktionsspannung der Spule zerstört den Transistor."],
+  ["DVB-T2-Störungen seit dem Mobilfunkausbau.","LTE/5G stört (700/800 MHz). LTE-Filter einbauen, gut geschirmte Bauteile verwenden."],
+  ["Sirene im Akkubetrieb zu leise.","Spannung an der Sirene zu klein: Akku schwach oder Spannungsfall auf der Leitung zu groß."]
+ ]
+};
+
+/* ---------- Quizfragen ----------
+   typ: mc (eine richtig), zahl (Toleranz in %), zuord (Paare); k = Matrixkoordinate */
+const QUIZ = {
+ ema:[
+  {typ:"mc",k:"IA1",f:"Ein Juwelier bekommt eine EMA. Welche VdS-Klasse ist richtig?",o:["Klasse A","Klasse B","Klasse C"],r:2,e:"Juweliere gehören zu den Sicherungsklassen SG-3 bis SG-6 → VdS-Klasse C."},
+  {typ:"mc",k:"IA1",f:"Wie lange muss der Akku einer EMA Klasse B ohne Störungsweiterleitung überbrücken?",o:["12 h","30 h","60 h","72 h"],r:2,e:"Klasse B/C: 60 h, mit Weiterleitung an eine ständig besetzte Stelle 30 h."},
+  {typ:"mc",k:"IA2",f:"Die Anlage lässt sich nicht scharfschalten, weil ein Fenster offen ist. Das ist …",o:["ein Defekt der EMZ","die Zwangsläufigkeit","ein Sabotagealarm"],r:1,e:"Zwangsläufigkeit: Nur wenn alle Melder in Ruhe sind, ist Scharfschalten möglich."},
+  {typ:"zahl",k:"IA3",f:"EMA Klasse A: I_R = 0,25 A, Sirene 0,5 A, Blitzleuchte 0,15 A. Berechne die Akkukapazität in Ah.",l:3.08,tol:2,einheit:"Ah",e:"K = 12 h · 0,25 A + 1/60 h · 0,5 A + 0,5 h · 0,15 A = 3 + 0,008 + 0,075 = 3,08 Ah"},
+  {typ:"zahl",k:"IA3",f:"EMA Klasse C ohne Weiterleitung: I_R = 0,3 A, Sirene 0,6 A, Blitzleuchte 0,2 A. Akkukapazität in Ah?",l:18.11,tol:1,einheit:"Ah",e:"K = 60 h · 0,3 A + 1/60 h · 0,6 A + 0,5 h · 0,2 A = 18 + 0,01 + 0,1 = 18,11 Ah"},
+  {typ:"zahl",k:"IA3",f:"Ein 17-Ah-Akku soll in 24 h auf 80 % geladen werden. Welcher Ladestrom ist nötig (in A)?",l:0.567,tol:2,einheit:"A",e:"I_L = 0,8 · 17 Ah / 24 h = 0,57 A"},
+  {typ:"mc",k:"IA2",f:"Wie montierst du einen PIR-Melder?",o:["Laufrichtung des Täters direkt auf den Melder zu","Laufrichtung quer zum Melder","auf das Fenster gerichtet"],r:1,e:"Quer zur Laufrichtung durchquert der Täter mehrere Zonen → sichere Erkennung."},
+  {typ:"mc",k:"IA1",f:"Wann überwacht eine Sabotagemeldegruppe?",o:["nur im scharfen Zustand","immer (24 h)","nur intern scharf"],r:1,e:"Sabotage wird immer überwacht, auch bei unscharfer Anlage."},
+  {typ:"mc",k:"IA1",f:"Wen alarmiert ein AWUG?",o:["Nachbarn per Sirene","Privatpersonen per Sprachansage","eine Notruf- und Serviceleitstelle"],r:2,e:"AWUG = Wähl- und Übertragungsgerät → NSL mit genormtem Protokoll."},
+  {typ:"mc",k:"IA2",f:"Worauf achtest du beim Innensignalgeber?",o:["Er muss direkt neben der EMZ hängen.","Er darf keine Rückschlüsse auf den Montageort der EMZ zulassen.","Er muss von außen sichtbar sein."],r:1,e:"Sonst findet der Täter über den Signalgeber die Zentrale."},
+  {typ:"zuord",k:"IA1",f:"Ordne der Überwachungsart einen passenden Melder zu.",p:[["Außenhaut","Magnetkontakt"],["Raum","PIR-Melder"],["Objekt","Körperschallmelder am Tresor"],["Freiland","Lichtschranke"]],e:"Außenhaut = Öffnen/Durchbruch, Raum = Bewegung, Objekt = einzelner Gegenstand, Freiland = Gelände."}
+ ],
+ bma:[
+  {typ:"mc",k:"IA2",f:"Welcher Melder gehört in eine Teeküche?",o:["optischer Rauchmelder","Wärmemelder","Flammenmelder"],r:1,e:"Kochdampf würde einen Rauchmelder auslösen → Wärmemelder."},
+  {typ:"mc",k:"IA1",f:"Rauchmelder, A > 80 m², h ≤ 6 m, Dachneigung ≤ 20°: Welche Überwachungsfläche A_M gilt (Werte aus dem Unterricht)?",o:["30 m²","60 m²","80 m²"],r:1,e:"A_M = 60 m², D_H = 5,7 m."},
+  {typ:"zahl",k:"IA3",f:"Raum 20 m × 12 m, Rauchmelder, A_M = 60 m². Wie viele Melder sind mindestens nötig?",l:4,tol:0,einheit:"Melder",e:"A = 240 m² → n = 240 / 60 = 4 Melder (danach Raster mit D_H prüfen)."},
+  {typ:"zahl",k:"IA3",f:"Raum 18 m × 15 m, Rauchmelder, A_M = 60 m². Wie viele Melder sind mindestens nötig?",l:5,tol:0,einheit:"Melder",e:"A = 270 m² → 270 / 60 = 4,5 → aufrunden auf 5 Melder."},
+  {typ:"zahl",k:"IA3",f:"Ein Melderfeld ist 6 m × 8 m groß. Wie groß ist der Abstand r vom Melder in der Mitte zur Ecke (in m)?",l:5,tol:1,einheit:"m",e:"r = √(3² + 4²) m = √25 m = 5,0 m – mit D_H = 5,7 m ist das Raster in Ordnung."},
+  {typ:"zahl",k:"IA3",f:"BMZ: Ruhestrom 0,5 A, Alarmstrom 1,8 A, 72 h Überbrückung + 30 min Alarm. Akkukapazität in Ah?",l:36.9,tol:1,einheit:"Ah",e:"K = 72 h · 0,5 A + 0,5 h · 1,8 A = 36 + 0,9 = 36,9 Ah"},
+  {typ:"mc",k:"IA1",f:"Wer setzt die BMA nach einem Feueralarm zurück?",o:["der Hausmeister","die Feuerwehr","der Errichter"],r:1,e:"Die Feuerwehr setzt zurück, nachdem sie die Ursache geprüft hat."},
+  {typ:"mc",k:"IA1",f:"Ein Handfeuermelder ist …",o:["blau und alarmiert nur intern","rot und alarmiert die Feuerwehr","gelb und schaltet die Lüftung ab"],r:1,e:"Handfeuermelder rot → Feuerwehr. Blau = Hausalarm (intern)."},
+  {typ:"mc",k:"IA1",f:"Wie oft wird eine BMA inspiziert?",o:["monatlich","vierteljährlich","alle zwei Jahre"],r:1,e:"Inspektion vierteljährlich, Wartung mindestens jährlich."},
+  {typ:"mc",k:"IA2",f:"Was ist KEINE typische Ursache für Falschalarme?",o:["Schweißarbeiten ohne Abschaltung","verschmutzte Melder","regelmäßige Wartung"],r:2,e:"Wartung verhindert Falschalarme – fehlende Wartung verursacht sie."},
+  {typ:"zuord",k:"IA1",f:"Ordne die Abkürzungen zu.",p:[["FSD","Feuerwehr-Schlüsseldepot"],["FAT","Feuerwehr-Anzeigetableau"],["FBF","Feuerwehr-Bedienfeld"],["ÜE","Übertragungseinrichtung"]],e:"Diese Feuerwehrperipherie findest du am Feuerwehrzugang."}
+ ],
+ ant:[
+  {typ:"zahl",k:"IA3",f:"Transponder 11 362 MHz. Berechne die Sat-ZF in MHz.",l:1612,tol:0,einheit:"MHz",e:"Low-Band (< 11 700 MHz): 11 362 − 9750 = 1612 MHz"},
+  {typ:"zahl",k:"IA3",f:"Transponder 12 515 MHz. Berechne die Sat-ZF in MHz.",l:1915,tol:0,einheit:"MHz",e:"High-Band: 12 515 − 10 600 = 1915 MHz"},
+  {typ:"mc",k:"IA1",f:"Was bewirkt das 22-kHz-Signal am LNB?",o:["Umschaltung auf horizontal","Umschaltung auf High-Band","Einschalten des Multischalters"],r:1,e:"22 kHz = High-Band. Die Polarisation schaltet über 14/18 V."},
+  {typ:"zahl",k:"IA3",f:"Antennenpegel 65 dBµV, Verstärker 20 dB, Kabel 3,5 dB, Verteiler 8 dB, Dose 1,5 dB. Pegel an der Dose in dBµV?",l:72,tol:0.5,einheit:"dBµV",e:"65 + 20 − 3,5 − 8 − 1,5 = 72 dBµV"},
+  {typ:"zahl",k:"IA3",f:"25 m Kabel mit 20 dB/100 m. Wie groß ist die Kabeldämpfung in dB?",l:5,tol:1,einheit:"dB",e:"a = 25 m · 20 dB / 100 m = 5 dB"},
+  {typ:"zahl",k:"IA3",f:"Ein Pegel von 60 dBµV entspricht welcher Spannung in mV?",l:1,tol:1,einheit:"mV",e:"U = 1 µV · 10^(60/20) = 1000 µV = 1 mV"},
+  {typ:"zahl",k:"IA3",f:"Am Messgerät liegen 4 mV an. Welcher Pegel in dBµV?",l:72.04,tol:1,einheit:"dBµV",e:"L = 20 · lg(4000 µV / 1 µV) = 72,0 dBµV"},
+  {typ:"zahl",k:"IA3",f:"Antennenpegel 55 dBµV, bis zur ungünstigsten Dose 21,5 dB Dämpfung, gefordert 60 dBµV. Welche Verstärkung ist mindestens nötig (in dB)?",l:26.5,tol:1,einheit:"dB",e:"V = 60 dBµV + 21,5 dB − 55 dBµV = 26,5 dB"},
+  {typ:"zahl",k:"IA3",f:"Mast: UHF-Antenne 40 N in 1,8 m, Spiegel 450 N in 0,5 m über der Einspannung. Biegemoment in Nm?",l:297,tol:0.5,einheit:"Nm",e:"M = 40 N · 1,8 m + 450 N · 0,5 m = 72 + 225 = 297 Nm"},
+  {typ:"mc",k:"IA1",f:"Was bedeutet Multischalter 9/8?",o:["9 Teilnehmer, 8 Eingänge","8 Sat-Eingänge + 1 terrestrisch, 8 Teilnehmer","9 Satelliten, 8 LNBs"],r:1,e:"Zwei Satelliten mit je 4 Ebenen + terrestrisch = 9 Eingänge, 8 Ausgänge."},
+  {typ:"mc",k:"IA2",f:"Können DVB-T2 und DVB-C auf einer Leitung kombiniert werden?",o:["ja, über eine Weiche","nein, sie liegen im selben Frequenzbereich","nur mit Unicable"],r:1,e:"Beide nutzen den Bereich unter 862 MHz und würden sich stören."},
+  {typ:"zuord",k:"IA1",f:"Ordne die Frequenzbereiche zu.",p:[["DAB+","174–230 MHz"],["DVB-T2","470–694 MHz"],["Sat-ZF","950–2150 MHz"],["UKW","87,5–108 MHz"]],e:"Merke dir die Bereiche – sie kommen in fast jeder Prüfung."}
+ ],
+ elek:[
+  {typ:"mc",k:"IA1",f:"Was steuert beim NPN-Transistor den Kollektorstrom?",o:["die Kollektorspannung","der Basisstrom","der Emitterwiderstand"],r:1,e:"I_C = B · I_B – ein kleiner Basisstrom steuert einen großen Kollektorstrom."},
+  {typ:"zahl",k:"IA3",f:"Ein Relais braucht I_C = 150 mA. Stromverstärkung B = 150. Wie groß ist der Basisstrom in mA?",l:1,tol:1,einheit:"mA",e:"I_B = I_C / B = 150 mA / 150 = 1 mA (in der Praxis mit Übersteuerung etwas mehr)."},
+  {typ:"zahl",k:"IA3",f:"Steuerspannung 5 V, U_BE = 0,7 V, gewünschter Basisstrom 2 mA. Basisvorwiderstand in Ω?",l:2150,tol:1,einheit:"Ω",e:"R_B = (5 V − 0,7 V) / 0,002 A = 2150 Ω → Normwert 2,2 kΩ ergibt etwas weniger Strom, 1,8 kΩ etwas mehr."},
+  {typ:"mc",k:"IA1",f:"Wie groß ist U_BE bei einem leitenden Si-Transistor?",o:["ca. 0,2 V","ca. 0,7 V","ca. 1,5 V"],r:1,e:"Die Basis-Emitter-Strecke ist eine Diode: ca. 0,7 V."},
+  {typ:"mc",k:"IA2",f:"Der Transistor sperrt. Welche Spannung liegt etwa zwischen Kollektor und Emitter?",o:["0 V","0,7 V","fast die volle Betriebsspannung"],r:2,e:"Gesperrt fließt kein Strom → an der Last fällt nichts ab → U_CE ≈ U_B."},
+  {typ:"mc",k:"IA2",f:"Wozu dient die Freilaufdiode parallel zur Relaisspule?",o:["Sie lässt das Relais schneller anziehen.","Sie schützt den Transistor vor der Induktionsspannung beim Abschalten.","Sie zeigt an, dass das Relais eingeschaltet ist."],r:1,e:"Beim Abschalten erzeugt die Spule eine hohe Gegenspannung – die Diode schließt sie kurz."},
+  {typ:"zahl",k:"IA3",f:"LED an 24 V: U_F = 2,0 V, I_F = 20 mA. Berechne den Vorwiderstand in Ω.",l:1100,tol:1,einheit:"Ω",e:"R_V = (24 V − 2,0 V) / 0,02 A = 1100 Ω → Normwert 1,2 kΩ"},
+  {typ:"zahl",k:"IA3",f:"LED an 24 V: U_F = 2,0 V, I_F = 20 mA. Welche Leistung wird im Vorwiderstand umgesetzt (in W)?",l:0.44,tol:2,einheit:"W",e:"P = U_R · I = 22 V · 0,02 A = 0,44 W → Widerstand mit mind. 0,5 W"},
+  {typ:"zahl",k:"IA3",f:"Drei weiße LEDs (je U_F = 3,2 V) in Reihe an 12 V, I_F = 20 mA. Vorwiderstand in Ω?",l:120,tol:1,einheit:"Ω",e:"R_V = (12 V − 3 · 3,2 V) / 0,02 A = 2,4 V / 0,02 A = 120 Ω"},
+  {typ:"mc",k:"IA2",f:"Du berechnest R_V = 1100 Ω. Welchen E12-Wert baust du ein?",o:["1,0 kΩ","1,2 kΩ","820 Ω"],r:1,e:"Nächstgrößerer Normwert → der Strom wird etwas kleiner, die LED ist sicher."},
+  {typ:"mc",k:"IA1",f:"Woran erkennst du die Kathode einer LED?",o:["längeres Bein","kürzeres Bein / abgeflachte Seite","rote Markierung"],r:1,e:"Kathode: kürzeres Bein, abgeflachte Gehäuseseite. Sie liegt Richtung Minus."}
+ ],
+ span:[
+  {typ:"zahl",k:"IA3",f:"Ein Gerät nimmt an 230 V einen Strom von 2,5 A auf. Leistung in W?",l:575,tol:0.5,einheit:"W",e:"P = U · I = 230 V · 2,5 A = 575 W"},
+  {typ:"zahl",k:"IA3",f:"Ein Wasserkocher hat 2000 W an 230 V. Strom in A?",l:8.7,tol:1,einheit:"A",e:"I = P / U = 2000 W / 230 V = 8,70 A"},
+  {typ:"zahl",k:"IA3",f:"Ein Heizstab hat 1000 W an 230 V. Wie groß ist sein Widerstand in Ω?",l:52.9,tol:1,einheit:"Ω",e:"R = U² / P = (230 V)² / 1000 W = 52,9 Ω"},
+  {typ:"zahl",k:"IA3",f:"Leitungswiderstand: l = 20 m, A = 0,75 mm², Kupfer, Hin- und Rückleiter. R_L in Ω?",l:0.952,tol:1,einheit:"Ω",e:"R_L = 2 · 20 m / (56 · 0,75 mm²) = 40 / 42 = 0,95 Ω"},
+  {typ:"zahl",k:"IA3",f:"Sirenenleitung: l = 25 m, I = 0,4 A, A = 0,5 mm², Kupfer. Spannungsfall in V?",l:0.714,tol:2,einheit:"V",e:"ΔU = 2 · 25 m · 0,4 A / (56 · 0,5 mm²) = 20 / 28 = 0,71 V"},
+  {typ:"mc",k:"IA2",f:"Eine EMA arbeitet mit 12 V, erlaubt sind 3 % Spannungsfall. Auf der Sirenenleitung fallen 0,71 V ab. Ist das zulässig?",o:["ja, 0,71 V < 0,36 V","nein, 0,71 V > 0,36 V (≈ 5,9 %)","das kann man nicht berechnen"],r:1,e:"3 % von 12 V = 0,36 V. 0,71 V sind ca. 5,9 % → zu viel."},
+  {typ:"zahl",k:"IA3",f:"Am Ausgang der EMZ liegen 12 V an, auf der Leitung fallen 0,85 V ab. Welche Spannung bekommt die Sirene (in V)?",l:11.15,tol:0.5,einheit:"V",e:"U_S = 12 V − 0,85 V = 11,15 V"},
+  {typ:"zahl",k:"IA3",f:"Welcher Querschnitt ist mindestens nötig? l = 30 m, I = 0,3 A, 12 V, ΔU = 3 %, Kupfer. (in mm²)",l:0.893,tol:2,einheit:"mm²",e:"A = 2 · 30 · 0,3 / (56 · 0,36) = 18 / 20,16 = 0,89 mm²"},
+  {typ:"zahl",k:"IA3",f:"Bei einer 24-V-BMZ fallen auf der Leitung 0,5 V ab. Wie groß ist der Spannungsfall in %?",l:2.08,tol:1,einheit:"%",e:"Δu = 0,5 V / 24 V · 100 % = 2,08 %"},
+  {typ:"mc",k:"IA2",f:"Die Leitung wird doppelt so lang. Was passiert mit dem Spannungsfall?",o:["halbiert sich","bleibt gleich","verdoppelt sich"],r:2,e:"ΔU ist proportional zur Länge l."},
+  {typ:"zahl",k:"IA3",f:"Vier IP-Kameras mit je 12 W hängen an einem PoE-Switch mit 60 W PoE-Budget. Wie viel Leistung bleibt als Reserve (in W)?",l:12,tol:0.5,einheit:"W",e:"4 · 12 W = 48 W ≤ 60 W → Budget reicht, Reserve 60 W − 48 W = 12 W."},
+  {typ:"zahl",k:"IA3",f:"Eine IP-Kamera braucht 12 W, der PoE-Switch arbeitet mit 48 V. Welcher Strom fließt zur Kamera (in A)?",l:0.25,tol:1,einheit:"A",e:"I = P / U = 12 W / 48 V = 0,25 A"},
+  {typ:"mc",k:"IA2",f:"Eine IP-Kamera braucht 12 W. Welcher PoE-Standard reicht mindestens?",o:["IEEE 802.3af (15,4 W je Port, ca. 13 W am Gerät)","nur IEEE 802.3at (30 W)","nur IEEE 802.3bt (90 W)"],r:0,e:"802.3af liefert am Gerät knapp 13 W – das reicht für 12 W. Stärkere Geräte brauchen 802.3at oder 802.3bt."},
+  {typ:"mc",k:"IA2",f:"Warum haben 24-V-Anlagen bei gleicher Leistung weniger Probleme mit dem Spannungsfall als 12-V-Anlagen?",o:["weil Kupfer bei 24 V besser leitet","weil der Strom nur halb so groß ist","weil die Leitungen kürzer sind"],r:1,e:"P = U · I: doppelte Spannung → halber Strom → halber Spannungsfall."}
+ ],
+ energie:[
+  {typ:"zahl",k:"IA3",f:"Ein Heizlüfter mit 2000 W läuft 1,5 h. Wie viel Energie in kWh?",l:3,tol:0.5,einheit:"kWh",e:"W = 2 kW · 1,5 h = 3 kWh"},
+  {typ:"zahl",k:"IA3",f:"Was kosten 3 kWh bei 0,36 €/kWh (in €)?",l:1.08,tol:1,einheit:"€",e:"3 kWh · 0,36 €/kWh = 1,08 €"},
+  {typ:"zahl",k:"IA3",f:"Ein Fernseher braucht im Standby 0,5 W, 20 h am Tag, 365 Tage. Kosten pro Jahr bei 0,36 €/kWh (in €)?",l:1.31,tol:2,einheit:"€",e:"W = 0,0005 kW · 20 h · 365 = 3,65 kWh → 3,65 · 0,36 = 1,31 €"},
+  {typ:"zahl",k:"IA3",f:"Ein WLAN-Router (8 W) läuft das ganze Jahr. Kosten bei 0,36 €/kWh (in €)?",l:25.23,tol:1,einheit:"€",e:"W = 0,008 kW · 8760 h = 70,08 kWh → 70,08 · 0,36 = 25,23 €"},
+  {typ:"zahl",k:"IA3",f:"Glühlampe 60 W oder LED 6 W, je 3 h pro Tag an 365 Tagen, 0,36 €/kWh. Ersparnis der LED pro Jahr in €?",l:21.29,tol:1,einheit:"€",e:"ΔP = 54 W · 1095 h = 59,13 kWh → 59,13 · 0,36 = 21,29 €"},
+  {typ:"zahl",k:"IA3",f:"Alter Kühlschrank 300 kWh/Jahr, neuer 110 kWh/Jahr, 0,36 €/kWh. Ersparnis pro Jahr in €?",l:68.4,tol:1,einheit:"€",e:"(300 − 110) kWh · 0,36 €/kWh = 190 · 0,36 = 68,40 €"},
+  {typ:"zahl",k:"IA3",f:"Ein sparsamer Kühlschrank kostet 342 € mehr als ein einfaches Modell, spart aber 68,40 € Stromkosten pro Jahr. Nach wie vielen Jahren hat er sich bezahlt gemacht?",l:5,tol:1,einheit:"Jahre",e:"342 € / 68,40 €/Jahr = 5 Jahre"},
+  {typ:"zahl",k:"IA3",f:"Eine Waschmaschine braucht 0,9 kWh pro Waschgang, 4 Waschgänge pro Woche, 52 Wochen, 0,36 €/kWh. Kosten pro Jahr in €?",l:67.39,tol:1,einheit:"€",e:"W = 0,9 · 4 · 52 = 187,2 kWh → 187,2 · 0,36 = 67,39 €"},
+  {typ:"zahl",k:"IA3",f:"Ein Motor nimmt 500 W auf und gibt 420 W ab. Wirkungsgrad in %?",l:84,tol:0.5,einheit:"%",e:"η = 420 W / 500 W = 0,84 = 84 %"},
+  {typ:"mc",k:"IA1",f:"Die Einheit kWh ist eine Einheit für …",o:["die Leistung","die Energie (Arbeit)","den Strom"],r:1,e:"kWh = Kilowattstunde = Energie. Die Leistung hat die Einheit W bzw. kW."},
+  {typ:"mc",k:"IA1",f:"Was gibt das Energielabel eines Kühlschranks an?",o:["die Leistung beim Einschalten","die Effizienzklasse und den Jahresverbrauch in kWh","den Preis pro Jahr"],r:1,e:"Mit dem Jahresverbrauch und deinem Strompreis berechnest du die Kosten selbst."}
+ ],
+ fehler:[
+  {typ:"mc",k:"IA2",f:"Kunde: „Die Alarmanlage lässt sich nicht scharfschalten, im Display steht ‚MG 3 nicht in Ruhe‘.“ Was ist die wahrscheinlichste Ursache?",o:["Akku leer","In Meldegruppe 3 ist ein Fenster oder eine Tür offen.","Die Sirene ist defekt."],r:1,e:"Zwangsläufigkeit – kein Defekt. Erst Fenster und Türen prüfen."},
+  {typ:"mc",k:"IA2",f:"Nachts meldet die unscharfe EMA einen Sabotagealarm. Was prüfst du zuerst?",o:["die Melder in Ruhe-Meldegruppen","Gehäusedeckel und Leitungen der Sabotagemeldegruppe","den Strompreis"],r:1,e:"Sabotage wird immer überwacht: Deckel offen, Gerät abgerissen oder Leitung unterbrochen."},
+  {typ:"mc",k:"IA2",f:"Nach Schweißarbeiten in der Werkstatt gab es einen Feueralarm. Was rätst du dem Betreiber?",o:["Rauchmelder durch Wärmemelder ersetzen","Melder vor Heißarbeiten abschalten lassen und danach wieder einschalten","BMA dauerhaft abschalten"],r:1,e:"Abschaltung mit Freigabe vor Heißarbeiten – und danach unbedingt wieder einschalten."},
+  {typ:"mc",k:"IA2",f:"Alle Wohnungen haben bei Regen Bildaussetzer beim Satellitenempfang. Wo liegt der Fehler wahrscheinlich?",o:["an einer einzelnen Antennendose","zentral an Antenne, LNB oder Multischalter","im Fernseher"],r:1,e:"Mehrere Wohnungen betroffen → gemeinsamer Teil der Anlage."},
+  {typ:"mc",k:"IA2",f:"Nur in einer Wohnung fehlt das Satellitenbild. Wo suchst du?",o:["am LNB","an Leitung, F-Steckern, Dose oder Multischalterausgang dieser Wohnung","an der Satellitenposition"],r:1,e:"Die anderen Wohnungen gehen → Antenne und LNB sind in Ordnung."},
+  {typ:"mc",k:"IA2",f:"Ein Receiver empfängt alle Sender im Low-Band, aber keine im High-Band. Was fehlt?",o:["die 18-V-Umschaltung","das 22-kHz-Signal","der Abschlusswiderstand"],r:1,e:"Das High-Band wird mit 22 kHz angewählt."},
+  {typ:"mc",k:"IA2",f:"Eine neu eingebaute LED leuchtet nicht, der Stromkreis ist in Ordnung. Ursache?",o:["Vorwiderstand zu klein","LED verpolt eingebaut","Spannung zu hoch"],r:1,e:"Die LED leitet nur in Durchlassrichtung: Anode an Plus."},
+  {typ:"mc",k:"IA2",f:"Eine LED leuchtet kurz sehr hell und ist dann kaputt. Ursache?",o:["Vorwiderstand fehlt oder ist viel zu klein","Vorwiderstand zu groß","LED verpolt"],r:0,e:"Ohne Strombegrenzung wird I_F weit überschritten."},
+  {typ:"mc",k:"IA2",f:"Das Relais zieht nicht richtig an und der Transistor wird warm. Ursache?",o:["Basisstrom zu klein, Transistor nicht gesättigt","Freilaufdiode fehlt","Relais zu klein"],r:0,e:"Nicht gesättigt → U_CE zu groß → Verlustleistung im Transistor."},
+  {typ:"mc",k:"IA2",f:"Der Transistor geht immer beim Abschalten des Relais kaputt. Was fehlt?",o:["ein größerer Basiswiderstand","die Freilaufdiode","eine LED"],r:1,e:"Die Induktionsspannung der Spule zerstört den Transistor."},
+  {typ:"mc",k:"IA2",f:"Seit dem Mobilfunkausbau gibt es DVB-T2-Störungen. Was hilft?",o:["mehr Verstärkung","LTE-Filter und gut geschirmte Bauteile","Antenne drehen"],r:1,e:"LTE/5G im 700/800-MHz-Bereich – das Filter sperrt diese Frequenzen."}
+ ]
+};
+
+/* ---------- 8-Wochen-Plan ---------- */
+const PLAN = [
+ ["Woche 1","Leistung & Energiekosten","Karteikarten U·I und €, Quiz Energiekosten, Rechentrainer Energievergleich","Lies bei drei Geräten zu Hause das Typenschild ab und berechne, was sie dich im Jahr kosten."],
+ ["Woche 2","Transistor & LED","Karteikarten Transistor und LED, Quiz, Rechentrainer LED und Transistor","Rechentrainer LED: Schaffe 5 richtige Aufgaben hintereinander."],
+ ["Woche 3","Spannungsfall & PoE","Quiz Leistung, Spannungsfall und PoE, Rechentrainer Spannungsfall","Erkläre einem Mitschüler in einer Minute, warum 24-V-Anlagen weniger Probleme mit dem Spannungsfall haben."],
+ ["Woche 4","EMA","Karteikarten EMA, Quiz EMA, Wiederholungsblatt EMA Teil A–D","Finde im Betrieb drei EMA-Melder und bestimme jeweils die Überwachungsart (ohne Fotos von Personen oder Adressen)."],
+ ["Woche 5","EMA-Akku & BMA","Wiederholungsblatt EMA Teil E, Karteikarten BMA, Quiz BMA, Wiederholungsblatt BMA","Miss deinen Klassenraum aus und plane die Rauchmelder mit A_M und D_H."],
+ ["Woche 6","Antennen Grundlagen & Pegel","Karteikarten Antennentechnik, Quiz, Wiederholungsblatt Antennentechnik Teil 1","Zeichne die Antennenanlage bei dir zu Hause oder im Betrieb als Übersichtsschaltplan."],
+ ["Woche 7","Satellitenempfang & Fehlersuche","Rechentrainer Sat-ZF, Wiederholungsblatt Antennentechnik Teil 2, Bereich Fehlersuche","Schau dir eine Sat-Anlage zu Hause oder im Betrieb an: Welches LNB und welcher Multischalter sind verbaut? Begründe, warum genau diese Bauteile gewählt wurden."],
+ ["Woche 8","Prüfungsmix","Prüfungsmix mehrmals, alle Karteikarten in Fach 3","Schaffe den Prüfungsmix dreimal mit mindestens 80 %."]
+];
+const MATERIAL = [
+ ["Wiederholung EMA","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_GuS_100_Wiederholung-Pruefung-EMA_26.pdf"],
+ ["Wiederholung BMA","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_GuS_110_Wiederholung-Pruefung-BMA_26.pdf"],
+ ["Wiederholung Antennentechnik Teil 1","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_UeK_100_Wiederholung-Pruefung-Teil1_26.pdf"],
+ ["Wiederholung Antennentechnik Teil 2","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_UeK_110_Wiederholung-Pruefung-Teil2_26.pdf"]
+];
+
+/* ---------- Speicher (nur lokal) ---------- */
+const SPEICHER = "pruefungsfit_eeg13_sbsz_v1";
+let stand = {quiz:{}, fach:{}, plan:{}, trainer:{}};
+function laden(){try{const s=JSON.parse(localStorage.getItem(SPEICHER));if(s)stand=Object.assign(stand,s);}catch(e){}}
+function sichern(){try{localStorage.setItem(SPEICHER,JSON.stringify(stand));}catch(e){}}
+laden();
+
+/* ---------- Hilfsfunktionen ---------- */
+const $ = s => document.querySelector(s);
+const zahl = s => parseFloat(String(s).replace(",","."));
+const de = (x,n=2) => Number(x).toLocaleString("de-DE",{maximumFractionDigits:n});
+const mischen = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+const zufall = (a,b,schritt=1) => Math.round((a+Math.random()*(b-a))/schritt)*schritt;
+function sub(t){return t.replace(/\b([A-Za-zΔ])_([A-Za-z]{1,3})\b/g,"$1<sub>$2</sub>");}
+
+function kartenFortschritt(id){
+ const n=KARTEN[id].length; let p=0;
+ KARTEN[id].forEach((_,i)=>{p+=(stand.fach[id+"-"+i]||1)-1;});
+ return Math.round(p/(2*n)*100);
+}
+
+/* ---------- Navigation ---------- */
+const SEITEN = [["start","🗺️ Lernlandkarte"],["plan","📅 8-Wochen-Plan"],["trainer","🧮 Rechentrainer"],["mix","🎯 Prüfungsmix"],["info","ℹ️ So lernst du"]];
+function nav(aktiv){
+ $("#nav").innerHTML = SEITEN.map(([id,t])=>`<button class="${id===aktiv?'aktiv':''}" onclick="zeige('${id}')">${t}</button>`).join("");
+}
+function zeige(id,arg){
+ nav(BEREICHE.some(b=>b.id===id)?"start":id);
+ window.scrollTo(0,0);
+ ({start:seiteStart,plan:seitePlan,trainer:seiteTrainer,mix:seiteMix,info:seiteInfo}[id]||(()=>seiteBereich(id,arg)))();
+}
+
+/* ---------- Startseite: Lernlandkarte ---------- */
+function seiteStart(){
+ const fertig = BEREICHE.filter(b=>(stand.quiz[b.id]||0)>=80).length;
+ $("#app").innerHTML = `
+ <div class="karte">
+  <h2>Deine Lernlandkarte</h2>
+  <p>In acht Wochen ist Gesellenprüfung. Wähle einen Bereich: Mit <b>Karteikarten</b> wiederholst du das Wissen, im <b>Quiz</b> prüfst du dich selbst (bestanden ab 80 %), im <b>Rechentrainer</b> übst du mit immer neuen Zahlen.</p>
+  <p class="klein">Bestanden: ${fertig} von ${BEREICHE.length} Bereichen · Dein Fortschritt wird nur in diesem Browser gespeichert.</p>
+ </div>
+ ${(()=>{const w=PLAN.findIndex((_,i)=>!stand.plan[i]); if(w<0)return '<div class="karte hinweis"><b>Alle Wochen erledigt!</b> Du bist bereit für die Prüfung. Viel Erfolg!</div>';
+   return `<div class="karte challenge"><b>🏆 Challenge ${PLAN[w][0]} – ${PLAN[w][1]}</b><p style="margin:6px 0">${sub(PLAN[w][3])}</p><span class="klein">Diese Woche: ${PLAN[w][2]} · <a href="#" onclick="zeige('plan');return false">zum Plan</a></span></div>`;})()}
+ <div class="raster">${BEREICHE.map(b=>{
+   const q=stand.quiz[b.id], kp=kartenFortschritt(b.id);
+   return `<div class="station ${q>=80?'ok':''}" onclick="zeige('${b.id}')">
+    <span class="badge ${q>=80?'ok':''}">${q===undefined?'Quiz offen':(q>=80?'✓ '+q+' %':q+' %')}</span>
+    <div class="icon">${b.icon}</div><h3>${b.titel}</h3><p>${sub(b.text)}</p>
+    <div class="balken"><div style="width:${kp}%"></div></div>
+    <div class="status">Karteikarten: ${kp} % sicher</div></div>`;}).join("")}
+ </div>`;
+}
+
+/* ---------- Bereichsseite ---------- */
+function seiteBereich(id,tab="karten"){
+ const b=BEREICHE.find(x=>x.id===id);
+ $("#app").innerHTML = `
+ <div class="karte">
+  <button class="btn zweit" onclick="zeige('start')">← Lernlandkarte</button>
+  <h2 style="margin-top:12px">${b.icon} ${b.titel}</h2>
+  <div class="tabs">
+   <button class="${tab==='karten'?'aktiv':''}" onclick="seiteBereich('${id}','karten')">Karteikarten</button>
+   <button class="${tab==='quiz'?'aktiv':''}" onclick="seiteBereich('${id}','quiz')">Quiz</button>
+  </div>
+  <div id="inhalt"></div>
+ </div>`;
+ tab==="karten"?karteikarten(id):quizStart(id,QUIZ[id],"inhalt",id);
+}
+
+/* ---------- Karteikarten mit 3 Fächern ---------- */
+function karteikarten(id){
+ const liste = KARTEN[id].map((k,i)=>({i,k,fach:stand.fach[id+"-"+i]||1}));
+ const offen = liste.filter(x=>x.fach<3);
+ const zaehl = f=>liste.filter(x=>x.fach===f).length;
+ const kopf = `<div class="fach"><span>Fach 1 (neu): ${zaehl(1)}</span><span>Fach 2 (fast): ${zaehl(2)}</span><span style="background:var(--gruen-hell)">Fach 3 (sicher): ${zaehl(3)}</span></div>`;
+ if(!offen.length){
+  $("#inhalt").innerHTML = kopf+`<div class="feedback ok">Alle Karten sind in Fach 3. Stark! Mach jetzt das Quiz.</div>
+  <p><button class="btn zweit" onclick="kartenReset('${id}')">Karten wieder in Fach 1 legen</button></p>`; return;
+ }
+ offen.sort((a,b)=>a.fach-b.fach);
+ const akt = offen[0];
+ $("#inhalt").innerHTML = kopf+`
+  <p class="klein">Klicke auf die Karte, um sie umzudrehen. Beantworte die Frage erst im Kopf oder laut.</p>
+  <div class="flip" id="flip" onclick="this.classList.toggle('um')"><div class="innen">
+   <div class="seite">${sub(akt.k[0])}</div><div class="seite rueck">${sub(akt.k[1])}</div></div></div>
+  <button class="btn gruen" onclick="kartenWertung('${id}',${akt.i},true)">✓ Gewusst</button>
+  <button class="btn zweit" onclick="kartenWertung('${id}',${akt.i},false)">✗ Nochmal</button>`;
+}
+function kartenWertung(id,i,ok){
+ const key=id+"-"+i, f=stand.fach[key]||1;
+ stand.fach[key]= ok?Math.min(3,f+1):1; sichern(); karteikarten(id);
+}
+function kartenReset(id){KARTEN[id].forEach((_,i)=>delete stand.fach[id+"-"+i]);sichern();karteikarten(id);}
+
+/* ---------- Quiz ---------- */
+let Q=null;
+function quizStart(name,fragen,ziel,speicherId){
+ Q={name,fragen:mischen(fragen),nr:0,punkte:0,ziel,speicherId,beantwortet:false,log:[]};
+ quizFrage();
+}
+function quizFrage(){
+ const f=Q.fragen[Q.nr]; Q.beantwortet=false;
+ let html=`<div class="fortschritt">Frage ${Q.nr+1} von ${Q.fragen.length}</div><div class="frage">${sub(f.f)}</div>`;
+ if(f.typ==="mc"){
+  html+=`<div class="optionen">${f.o.map((o,i)=>`<label id="opt${i}"><input type="radio" name="mc" value="${i}"> ${sub(o)}</label>`).join("")}</div>`;
+ } else if(f.typ==="zahl"){
+  html+=`<input type="text" inputmode="decimal" autocomplete="off" id="eing" placeholder="Ergebnis"> ${f.einheit}`;
+ } else {
+  const rechts=mischen(f.p.map(x=>x[1]));
+  html+=`<div class="zuord">${f.p.map((x,i)=>`<div><b>${x[0]}</b></div><select id="z${i}"><option value="">– wählen –</option>${rechts.map(r=>`<option>${r}</option>`).join("")}</select>`).join("")}</div>`;
+ }
+ html+=`<p><button class="btn" id="pruef" onclick="quizPruefen()">Prüfen</button></p><div id="fb"></div>`;
+ document.getElementById(Q.ziel).innerHTML=html;
+}
+function quizPruefen(){
+ if(Q.beantwortet){return;}
+ const f=Q.fragen[Q.nr]; let ok=false;
+ if(f.typ==="mc"){
+  const w=document.querySelector('input[name=mc]:checked'); if(!w)return;
+  ok=+w.value===f.r;
+  document.getElementById("opt"+f.r).classList.add("richtig");
+  if(!ok)document.getElementById("opt"+w.value).classList.add("falsch");
+ } else if(f.typ==="zahl"){
+  const v=zahl($("#eing").value); if(isNaN(v))return;
+  ok = f.tol===0 ? Math.abs(v-f.l)<1e-9 : Math.abs(v-f.l)<=Math.abs(f.l)*f.tol/100+1e-9;
+ } else {
+  ok=f.p.every((x,i)=>$("#z"+i).value===x[1]);
+ }
+ Q.beantwortet=true; if(ok)Q.punkte++;
+ Q.log.push({f:f.f,ok,k:f.k||(f.typ==="zahl"?"IA3":"IA1")});
+ const letzte=Q.nr===Q.fragen.length-1;
+ $("#fb").innerHTML=`<div class="feedback ${ok?'ok':'nein'}"><b>${ok?'Richtig!':'Noch nicht.'}</b> ${sub(f.e)}</div>
+  <p><button class="btn" onclick="${letzte?'quizEnde()':'Q.nr++;quizFrage()'}">${letzte?'Auswertung':'Nächste Frage →'}</button></p>`;
+ $("#pruef").disabled=true;
+}
+function quizEnde(){
+ const pz=Math.round(Q.punkte/Q.fragen.length*100);
+ if(Q.speicherId){stand.quiz[Q.speicherId]=Math.max(pz,stand.quiz[Q.speicherId]||0);sichern();}
+ const falsch=Q.log.filter(x=>!x.ok);
+ document.getElementById(Q.ziel).innerHTML=`
+  <div class="ergebnis">${pz} % – ${pz>=80?'bestanden ✓':'noch nicht bestanden'}</div>
+  <p>${Q.punkte} von ${Q.fragen.length} Fragen richtig.</p>
+  ${koordTabelle()}
+  ${falsch.length?`<div class="merke"><b>Das wiederholst du noch einmal:</b><ul>${falsch.map(x=>`<li>${sub(x.f)}</li>`).join("")}</ul></div>`:''}
+  <button class="btn" onclick="quizStart(Q.name,Q.fragen,Q.ziel,Q.speicherId)">Quiz wiederholen</button>`;
+}
+
+const KOORD={IA1:"Wissen wiedergeben (nennen, zuordnen)",IA2:"Wissen erklären und begründen",IA3:"Wissen anwenden (berechnen, übertragen)"};
+function koordTabelle(){
+ const g={}; Q.log.forEach(x=>{g[x.k]=g[x.k]||[0,0];g[x.k][1]++;if(x.ok)g[x.k][0]++;});
+ return `<table style="max-width:620px;margin:8px 0 12px"><tr><th>Ziel</th><th>Bereich</th><th>richtig</th><th>Stand</th></tr>${Object.keys(g).sort().map(k=>{const [a,n]=g[k],p=a/n;
+  return `<tr><td>${k}</td><td>${KOORD[k]||''}</td><td>${a} / ${n}</td><td>${p>=0.8?'● sicher':(p>=0.5?'◐ teilweise':'○ noch nicht')}</td></tr>`;}).join("")}</table>`;
+}
+
+/* ---------- Rechentrainer mit Zufallswerten ---------- */
+const TRAINER = {
+ led:{titel:"LED mit Vorwiderstand",neu(){
+   const ub=[5,9,12,24][zufall(0,3)], led=[["rot",2.0],["gelb",2.1],["grün",2.2],["blau",3.0],["weiß",3.2]][zufall(0,4)], i=[10,15,20][zufall(0,2)];
+   const r=(ub-led[1])/(i/1000);
+   return {text:`Eine ${led[0]}e LED (U<sub>F</sub> = ${de(led[1],1)} V, I<sub>F</sub> = ${i} mA) soll an U<sub>B</sub> = ${ub} V betrieben werden. Berechne den Vorwiderstand R<sub>V</sub> in Ω.`,
+    l:r,einheit:"Ω",tol:1,loes:`R<sub>V</sub> = (${ub} V − ${de(led[1],1)} V) / ${de(i/1000,3)} A = ${de(r,1)} Ω → nächster E12-Wert: ${e12(r)} Ω. Leistung: P = ${de(ub-led[1],1)} V · ${de(i/1000,3)} A = ${de((ub-led[1])*i/1000,3)} W`,
+    bild:ledSVG(ub)};}},
+ span:{titel:"Spannungsfall auf der Sirenenleitung",neu(){
+   const l=zufall(8,40), I=zufall(0.2,0.9,0.05), d=[0.6,0.8][zufall(0,1)], A=Math.PI/4*d*d;
+   const du=2*l*I/(56*A);
+   return {text:`Leitung J-Y(St)Y, Aderdurchmesser ${de(d,1)} mm (A = ${de(A,2)} mm²), Länge ${l} m, Strom der Sirene ${de(I,2)} A, Kupfer γ = 56 m/(Ω·mm²). Berechne den Spannungsfall ΔU in V.`,
+    l:du,einheit:"V",tol:2,loes:`ΔU = 2 · ${l} m · ${de(I,2)} A / (56 · ${de(A,2)} mm²) = ${de(du,3)} V. Bei 12 V sind 3 % = 0,36 V erlaubt → ${du<=0.36?'zulässig':'zu groß – Adern parallel schalten'}.`};}},
+ energie:{titel:"Zwei Geräte vergleichen",neu(){
+   const p1=zufall(40,60), p2=zufall(5,9), h=zufall(2,6), preis=[0.32,0.34,0.36,0.38][zufall(0,3)];
+   const diff=(p1-p2)/1000*h*365*preis;
+   return {text:`Halogenlampe ${p1} W oder LED-Lampe ${p2} W, beide ${h} h pro Tag an 365 Tagen, Strompreis ${de(preis,2)} €/kWh. Wie viel Euro spart die LED-Lampe pro Jahr?`,
+    l:diff,einheit:"€",tol:1.5,loes:`W<sub>1</sub> = ${de(p1/1000,3)} kW · ${h} h · 365 = ${de(p1/1000*h*365,2)} kWh · W<sub>2</sub> = ${de(p2/1000*h*365,2)} kWh · Ersparnis = (${de(p1/1000*h*365,2)} − ${de(p2/1000*h*365,2)}) kWh · ${de(preis,2)} €/kWh = ${de(diff,2)} €`};}},
+ zf:{titel:"Sat-ZF berechnen",neu(){
+   const f=zufall(10750,12700,1);
+   const high=f>=11700, zf=f-(high?10600:9750);
+   return {text:`Ein Transponder sendet auf ${de(f,0)} MHz. Berechne die Sat-ZF in MHz.`,l:zf,einheit:"MHz",tol:0,
+    loes:`${high?'High':'Low'}-Band (${high?'≥':'<'} 11 700 MHz) → f<sub>LO</sub> = ${high?'10 600':'9750'} MHz · f<sub>ZF</sub> = ${de(f,0)} − ${high?'10 600':'9750'} = ${de(zf,0)} MHz`};}},
+ transistor:{titel:"Transistor als Schalter",neu(){
+   const ic=zufall(50,300,10), B=[100,150,200,250][zufall(0,3)], ib=ic/B;
+   return {text:`Ein NPN-Transistor schaltet ein Relais mit I<sub>C</sub> = ${ic} mA. Die Stromverstärkung ist B = ${B}. Berechne den Basisstrom I<sub>B</sub> in mA (ohne Übersteuerung).`,l:ib,einheit:"mA",tol:2,
+    loes:`I<sub>B</sub> = I<sub>C</sub> / B = ${ic} mA / ${B} = ${de(ib,3)} mA`};}}
+};
+const E12=[1,1.2,1.5,1.8,2.2,2.7,3.3,3.9,4.7,5.6,6.8,8.2];
+function e12(r){let dek=Math.pow(10,Math.floor(Math.log10(r)));for(const w of E12){if(w*dek>=r-1e-9)return de(w*dek,0);}return de(10*dek,0);}
+function ledSVG(ub){return `<svg viewBox="0 0 330 130" width="330" height="130" aria-label="Schaltung LED mit Vorwiderstand">
+ <g stroke="#000" stroke-width="2" fill="none">
+  <path d="M40 30 H120 M170 30 H230 M230 30 V60 M230 100 V110 H40 V95 M40 65 V30"/>
+  <circle cx="40" cy="80" r="15"/><path d="M40 65 V95"/>
+  <rect x="120" y="22" width="50" height="16"/>
+  <path d="M218 60 H242 L230 82 Z M218 82 H242 M230 82 V100" fill="#fff"/>
+  <path d="M246 66 L262 56 M252 75 L268 65"/><path d="M262 56 l-6 0 M262 56 l-2 5 M268 65 l-6 0 M268 65 l-2 5"/>
+ </g>
+ <g font-size="12"><text x="2" y="84">U<tspan font-size="9" dy="3">B</tspan></text><text x="2" y="100" font-size="11">${ub} V</text>
+ <text x="133" y="16">R<tspan font-size="9" dy="3">V</tspan></text><text x="250" y="96">LED</text></g></svg>`;}
+let T=null;
+function seiteTrainer(art){
+ $("#app").innerHTML=`<div class="karte"><h2>Rechentrainer</h2>
+  <p>Jede Aufgabe bekommt neue Zahlen. Schaffst du <b>3 richtige hintereinander</b>, gilt der Trainer als bestanden.</p>
+  <div class="tabs">${Object.entries(TRAINER).map(([k,v])=>`<button class="${k===(art||'led')?'aktiv':''}" onclick="seiteTrainer('${k}')">${v.titel}${(stand.trainer[k]||0)>=3?' ✓':''}</button>`).join("")}</div>
+  <div id="tr"></div></div>`;
+ trainerNeu(art||"led");
+}
+function trainerNeu(art){
+ T={art,a:TRAINER[art].neu()};
+ $("#tr").innerHTML=`${T.a.bild||''}<p class="frage">${T.a.text}</p>
+  <input type="text" inputmode="decimal" autocomplete="off" id="treing" placeholder="Ergebnis"> ${T.a.einheit}
+  <p><button class="btn" onclick="trainerPruefen()">Prüfen</button>
+  <button class="btn zweit" onclick="trainerNeu('${art}')">Neue Zahlen</button></p><div id="trfb"></div>
+  <p class="klein">Serie: ${stand.trainer[art]||0} richtig hintereinander</p>`;
+}
+function trainerPruefen(){
+ const v=zahl($("#treing").value); if(isNaN(v))return;
+ const ok=T.a.tol===0?Math.round(v)===Math.round(T.a.l):Math.abs(v-T.a.l)<=Math.abs(T.a.l)*T.a.tol/100;
+ stand.trainer[T.art]=ok?(stand.trainer[T.art]||0)+1:0; sichern();
+ $("#trfb").innerHTML=`<div class="feedback ${ok?'ok':'nein'}"><b>${ok?'Richtig!':'Noch nicht.'}</b> ${T.a.loes}</div>
+  <button class="btn" onclick="seiteTrainer('${T.art}')">Nächste Aufgabe →</button>`;
+}
+
+/* ---------- Prüfungsmix ---------- */
+function seiteMix(){
+ $("#app").innerHTML=`<div class="karte"><h2>Prüfungsmix</h2>
+  <p>12 zufällige Fragen aus allen Bereichen – wie in der Gesellenprüfung. Ziel: mindestens 80 %.</p>
+  <p class="klein">Bester Mix bisher: ${stand.quiz.mix!==undefined?stand.quiz.mix+' %':'noch keiner'}</p>
+  <div id="mixq"><button class="btn" onclick="mixStart()">Prüfungsmix starten</button></div></div>`;
+}
+function mixStart(){
+ const alle=[].concat(...Object.values(QUIZ));
+ quizStart("mix",mischen(alle).slice(0,12),"mixq","mix");
+}
+
+/* ---------- 8-Wochen-Plan ---------- */
+function seitePlan(){
+ $("#app").innerHTML=`<div class="karte"><h2>Dein 8-Wochen-Plan bis zur Prüfung</h2>
+  <p>Pro Woche ca. 2–3 kurze Einheiten à 20 Minuten. Hake ab, was du geschafft hast.</p>
+  <table><tr><th style="width:80px">Woche</th><th style="width:150px">Thema</th><th>Das machst du</th><th>Challenge</th><th style="width:70px">erledigt</th></tr>
+  ${PLAN.map((w,i)=>`<tr class="woche ${stand.plan[i]?'erledigt':''}"><td>${w[0]}</td><td><b>${w[1]}</b></td><td>${w[2]}</td><td>${sub(w[3])}</td>
+   <td style="text-align:center"><input type="checkbox" ${stand.plan[i]?'checked':''} onchange="stand.plan[${i}]=this.checked;sichern();seitePlan()"></td></tr>`).join("")}
+  </table>
+  <h3>Wiederholungsblätter zum Ausdrucken</h3>
+  <p>Bearbeite sie wie eine Prüfung (Tabellenbuch, Formelsammlung, Taschenrechner). Die Lösung besprichst du mit deiner Lehrkraft.</p>
+  <ul>${MATERIAL.map(m=>`<li><a href="${m[1]}" target="_blank" rel="noopener">${m[0]} (PDF)</a> <span class="klein">– Material der BS1 Bayreuth</span></li>`).join("")}</ul></div>`;
+}
+
+/* ---------- Info ---------- */
+function seiteInfo(){
+ $("#app").innerHTML=`<div class="karte"><h2>So lernst du mit Prüfungsfit</h2>
+  <ol>
+   <li><b>Karteikarten:</b> Frage lesen, Antwort laut sagen, Karte umdrehen. „Gewusst“ schiebt die Karte ein Fach weiter, „Nochmal“ zurück in Fach 1.</li>
+   <li><b>Quiz:</b> Pro Bereich 10–14 Fragen (Auswahl, Rechnen, Zuordnen) in zufälliger Reihenfolge. Am Ende siehst du, ob du beim Nennen, Erklären oder Berechnen noch Lücken hast. Ab 80 % ist der Bereich auf der Lernlandkarte grün.</li>
+   <li><b>Rechentrainer:</b> Immer neue Zahlen – rechne auf Papier mit Formel, Einsetzen und Einheit wie in der Prüfung.</li>
+   <li><b>Prüfungsmix:</b> In den letzten zwei Wochen mehrmals durchführen.</li>
+   <li><b>Fehlersuche:</b> Störungsfälle wie im Kundendienst – erst überlegen, dann Karte umdrehen.</li>
+   <li><b>Challenge:</b> Jede Woche eine kleine Aufgabe für Betrieb oder Zuhause. Hake die Woche im Plan ab, dann kommt die nächste.</li>
+  </ol>
+  <div class="hinweis">Dein Fortschritt wird nur auf diesem Gerät im Browser gespeichert. Es werden keine Namen oder persönlichen Daten erfasst. Hilfsmittel wie in der Prüfung: Tabellenbuch, Formelsammlung, Taschenrechner.</div>
+  <p><button class="btn zweit" onclick="if(confirm('Wirklich alles zurücksetzen?')){stand={quiz:{},fach:{},plan:{},trainer:{}};sichern();zeige('start')}">Fortschritt zurücksetzen</button></p>
+ </div>`;
+}
+
+document.addEventListener("keydown",e=>{if(e.key!=="Enter")return;
+ if(e.target.id==="eing"){quizPruefen();}
+ else if(e.target.id==="treing"){trainerPruefen();}});
+zeige("start");
+</script>
+</body>
+</html>
