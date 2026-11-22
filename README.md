@@ -22,12 +22,12 @@ Dazu: Rechentrainer mit Zufallswerten, Prüfungsmix (15 Fragen), 4-Wochen-Plan m
 
 ## Technik
 
-- Eine einzige Datei: `index.html` (Logo eingebettet, keine externen Abhängigkeiten)
+- Lernseite: eine einzige Datei `index.html` (Logo eingebettet, keine externen Abhängigkeiten)
+- Wiederholungsblätter zum Ausdrucken im Ordner `material/` (PDF im Layout der Arbeitsblatt-Vorlage SBSZ Bamberg): EMA, BMA, Antennentechnik Teil 1 und Teil 2
 - Der Lernfortschritt wird nur lokal im Browser gespeichert (`localStorage`), es werden keine personenbezogenen Daten erfasst.
 - Veröffentlichung über GitHub Pages (Branch `main`, Ordner `/`)
 
 ## Quellen
 
-- Aufbau und Bereiche EMA, BMA, Antennentechnik, Elektronik, Energie: „Prüfungsfit EIE 13“ der Staatlichen Berufsschule 1 Bayreuth (https://bs1-et.github.io/EIE13-Pruefungsfit/). Die Wiederholungsblätter (PDF) werden von dort verlinkt.
 - Themenauswahl EEG: Schwerpunkte und Inhalte EFEG – GP II sowie die Themenliste der Musteraufgaben GP 2 des Landesinnungsverbands Bayern. Aufgaben und Lösungen der Musterprüfung wurden **nicht** übernommen, die Fragen sind eigenständig formuliert.
 - Fragen zum Zählerplatz, RCD, AFDD und SLS: angelehnt an Schulungsfragen der Fa. Hager zur VDE-AR-N 4100.

@@ -605,10 +605,10 @@ const PLAN = [
  ["Woche 4","Antennen, Energie, Fehlersuche & Prüfungsmix","Antennentechnik, Energiekosten, Fehlersuche, Prüfungsmix mehrmals, alle Karteikarten in Fach 3","Schaffe den Prüfungsmix dreimal mit mindestens 80 %."]
 ];
 const MATERIAL = [
- ["Wiederholung EMA","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_GuS_100_Wiederholung-Pruefung-EMA_26.pdf"],
- ["Wiederholung BMA","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_GuS_110_Wiederholung-Pruefung-BMA_26.pdf"],
- ["Wiederholung Antennentechnik Teil 1","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_UeK_100_Wiederholung-Pruefung-Teil1_26.pdf"],
- ["Wiederholung Antennentechnik Teil 2","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_UeK_110_Wiederholung-Pruefung-Teil2_26.pdf"]
+ ["Wiederholung Einbruchmeldeanlagen (EMA)","material/EEG13_Wiederholung_EMA.pdf"],
+ ["Wiederholung Brandmeldeanlagen (BMA)","material/EEG13_Wiederholung_BMA.pdf"],
+ ["Wiederholung Antennentechnik Teil 1 – Grundlagen und Pegel","material/EEG13_Wiederholung_Antenne_Teil1.pdf"],
+ ["Wiederholung Antennentechnik Teil 2 – Satellitenempfang","material/EEG13_Wiederholung_Antenne_Teil2.pdf"]
 ];
 
 /* ---------- Speicher (nur lokal) ---------- */
@@ -877,7 +877,7 @@ function seitePlan(){
   </table>
   <h3>Wiederholungsblätter zum Ausdrucken</h3>
   <p>Bearbeite sie wie eine Prüfung (Tabellenbuch, Formelsammlung, Taschenrechner). Die Lösung besprichst du mit deiner Lehrkraft.</p>
-  <ul>${MATERIAL.map(m=>`<li><a href="${m[1]}" target="_blank" rel="noopener">${m[0]} (PDF)</a> <span class="klein">– Material der BS1 Bayreuth</span></li>`).join("")}</ul></div>`;
+  <ul>${MATERIAL.map(m=>`<li><a href="${m[1]}" target="_blank" rel="noopener">${m[0]} (PDF)</a></li>`).join("")}</ul></div>`;
 }
 
 /* ---------- Info ---------- */
