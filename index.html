@@ -136,22 +136,138 @@ svg text{font-family:Calibri,Carlito,Arial,sans-serif}
 <script>
 /* =========================================================
    Prüfungsfit EEG 13 – SBSZ Bamberg, Abteilung Elektrotechnik
-   Inhalte: Karteikarten, Quiz, Rechentrainer, 8-Wochen-Plan
+   Inhalte: Karteikarten, Quiz, Rechentrainer, 4-Wochen-Plan
    Speicherung nur lokal im Browser (keine personenbezogenen Daten)
    ========================================================= */
 
 const BEREICHE = [
+ {id:"netz", icon:"🏠", titel:"Netzsysteme, Hausanschluss und Erdung", kurz:"NETZ", text:"TN-C/TN-S/TT/IT, HAK, Fundamenterder, Schutzpotentialausgleich, Fehlerarten"},
+ {id:"zaehler", icon:"🔌", titel:"Zählerplatz nach VDE-AR-N 4100", kurz:"ZÄHLER", text:"NAR, AAR, RfZ, APZ, SLS-Schalter, eHZ, Kurzschlussschaltvermögen"},
+ {id:"schutz", icon:"🛡️", titel:"Schutzmaßnahmen und Prüfen", kurz:"SCHUTZ", text:"RCD-Typen, AFDD, LS-Charakteristik, VDE 0100-600, VDE 0701-0702"},
+ {id:"leitung", icon:"〰️", titel:"Leitungsdimensionierung", kurz:"LEITUNG", text:"Verlegearten, Strombelastbarkeit, Umrechnungsfaktoren, Überlastschutz, ΔU"},
+ {id:"motor", icon:"⚙️", titel:"Motor, Trafo und Kompensation", kurz:"MOTOR", text:"Drehstrom-Asynchronmotor, Leistungsschild, Trafo, Blindleistungskompensation"},
+ {id:"gebaeude", icon:"🌡️", titel:"Gebäudetechnik: Licht, Wärme, Überspannung", kurz:"GEBÄUDE", text:"Beleuchtung, Durchlauferhitzer, Wärmepumpe, innerer Blitzschutz, Kleinsteuerung"},
+ {id:"it", icon:"🖧", titel:"IT-Netze", kurz:"IT", text:"IP-Adressen, DHCP, ping/ipconfig, Cat 6A, LWL, WLAN"},
  {id:"ema", icon:"🔐", titel:"Einbruchmeldeanlagen", kurz:"EMA", text:"Normen, VdS-Klassen, Melder, Zwangsläufigkeit, Akku"},
  {id:"bma", icon:"🔥", titel:"Brandmeldeanlagen", kurz:"BMA", text:"Komponenten, Melderwahl, A_M und D_H, Ansteuerungen"},
  {id:"ant", icon:"📡", titel:"Antennentechnik", kurz:"ANT", text:"Frequenzen, Pegel, Mast, Erdung, SAT-ZF, Multischalter"},
  {id:"elek", icon:"💡", titel:"Transistor und LED", kurz:"ELEK", text:"NPN-Transistor als Schalter, LED mit Vorwiderstand"},
  {id:"span", icon:"⚡", titel:"Leistung, Spannungsfall und PoE", kurz:"U·I", text:"P = U · I, Spannungsfall auf Melder- und Sirenenleitungen, PoE"},
  {id:"energie", icon:"💶", titel:"Energiekosten", kurz:"€", text:"kWh, Kosten pro Jahr, zwei Geräte vergleichen"},
- {id:"fehler", icon:"🔎", titel:"Fehlersuche", kurz:"FEHLER", text:"Störungsfälle aus EMA, BMA, SAT und Elektronik"}
+ {id:"fehler", icon:"🔎", titel:"Fehlersuche", kurz:"FEHLER", text:"Störungsfälle aus Installation, Motor, IT, EMA, BMA, SAT und Elektronik"}
 ];
 
 /* ---------- Karteikarten ---------- */
 const KARTEN = {
+ netz:[
+  ["Nenne die drei Netzsysteme nach Art der Erdverbindung.","TN-System · TT-System · IT-System"],
+  ["Was bedeuten die Buchstaben T, N, C und S?","T (terre): Sternpunkt direkt geerdet.<br>N: Körper über Schutzleiter mit dem geerdeten Sternpunkt verbunden.<br>C (combined): N und PE als PEN gemeinsam.<br>S (separated): N und PE getrennt."],
+  ["Wer gibt das Netzsystem vor?","Der Netzbetreiber (Verteilnetzbetreiber)."],
+  ["Warum darf hinter einem PEN-Leiter kein RCD ohne Auftrennung sitzen?","Der RCD vergleicht Hin- und Rückstrom. Im TN-C fließt der Rückstrom teilweise über den PE – der PEN muss vor dem RCD in N und PE aufgeteilt werden (TN-C-S)."],
+  ["Wo wird der PEN in N und PE aufgeteilt (Neuanlage)?","Möglichst am Einspeisepunkt (HAK / Zählerplatz). Vorteil: keine vagabundierenden Ströme über Schutzleiter und Gebäudeteile."],
+  ["Aufgaben des Hausanschlusskastens (HAK)?","Eigentumsgrenze/Schnittstelle Netzbetreiber – Kunde, Aufnahme der Hausanschlusssicherungen (NH), Abzweig der Hauptleitung."],
+  ["Was bedeutet NH bei Sicherungen?","Niederspannungs-Hochleistungssicherung."],
+  ["Welche Norm regelt Fundamenterder?","DIN 18014"],
+  ["Aufgaben des Fundamenterders?","Erdung für den Schutz gegen elektrischen Schlag (Schutzpotentialausgleich) und Erdung für den Blitzschutz bzw. Überspannungsschutz."],
+  ["Mindestmaß Fundamenterder (verzinkter Stahl)?","Rundstahl mind. 10 mm Durchmesser oder Bandstahl 30 mm × 3,5 mm. Maschenweite höchstens 20 m × 20 m."],
+  ["Was ist bei „weißer Wanne“ oder Perimeterdämmung anders?","Der Beton hat keinen guten Erdkontakt – zusätzlich ist ein Ringerder außerhalb (im Erdreich) nötig, der Fundamenterder wird zum Funktionspotentialausgleichsleiter."],
+  ["Was kommt an die Haupterdungsschiene?","Erder, Schutzleiter/PEN der Hauptleitung, Wasser- und Gasleitung, Heizung, Antennenerdung, Blitzschutz, Telekommunikation, metallene Gebäudeteile."],
+  ["Wozu dient der Schutzpotentialausgleich?","Er verbindet alle leitfähigen Teile, damit im Fehlerfall keine gefährlichen Spannungsunterschiede entstehen."],
+  ["Kurzschluss – Körperschluss – Erdschluss – Leiterschluss?","Kurzschluss: leitende Verbindung zwischen Außenleitern bzw. Außenleiter und N ohne Verbraucher.<br>Körperschluss: Verbindung zu einem Gehäuse.<br>Erdschluss: Verbindung zur Erde.<br>Leiterschluss: Verbindung über einen Verbraucher, z. B. überbrückter Schalter – die Leuchte lässt sich nicht mehr ausschalten."]
+ ],
+ zaehler:[
+  ["Welche Anwendungsregel gilt für Zählerplätze und den Anschluss an das Niederspannungsnetz?","VDE-AR-N 4100 (TAR Niederspannung), gültig seit 01.04.2019."],
+  ["Gilt die VDE-AR-N 4100 auch bei Erweiterungen?","Ja – bei Neuanlagen und bei Erweiterungen oder Änderungen bestehender Kundenanlagen."],
+  ["Wofür stehen NAR und AAR?","NAR: netzseitiger Anschlussraum (vor dem Zähler, mit SLS-Schalter).<br>AAR: anlagenseitiger Anschlussraum (nach dem Zähler)."],
+  ["Was ist im NAR Pflicht?","Ein 5-poliges Cu-Sammelschienensystem (L1, L2, L3, N, PE)."],
+  ["Wie wird die Hauptleitung eingeführt?","Von unten, hinten oder seitlich in den NAR – oder über ein seitlich angeordnetes Einspeisegehäuse."],
+  ["Was ist das RfZ?","Raum für Zusatzanwendungen im Zählerfeld: Smart-Meter-Gateway und Steuergeräte des Netzbetreibers. Die Elektrofachkraft legt Spannungsabgriff und Patchkabel zum APZ."],
+  ["Was ist das APZ?","Abschlusspunkt Zählerplatz: Kommunikationsanschluss (z. B. Router des Netzbetreibers), angrenzend an Ober- oder Unterkante des Zählerschranks, mit Spannungsabgriff."],
+  ["Was darf ins Verteilerfeld?","Schutzgeräte der Endstromkreise (RCD, LS, AFDD) und Reiheneinbaugeräte wie KNX-Netzteil oder Klingeltrafo."],
+  ["Mindest-Kurzschlussschaltvermögen der Geräte?","NAR (SLS): 25 kA · AAR: 10 kA · Verteilerfeld: 6 kA"],
+  ["Aufgaben des SLS-Schalters?","Selektiver Hauptleitungsschutz: hohes Ein-/Aus-/Kurzschlussschaltvermögen, selektiv zu nachgeschalteten LS und vorgeschalteten Sicherungen, schützt den Zähler, vom Laien bedienbar."],
+  ["Wonach richtet sich die Zahl der Zählerplätze?","Wohneinheiten, Allgemeinstrom, Wärmepumpe/Speicher, Ladeeinrichtung, Erzeugungsanlage (PV), getrennte Messungen."],
+  ["Wo darf kein Zählerschrank hin?","Über Treppenstufen, in Bädern/Duschen, in nicht zugänglichen oder feuchten/heißen Räumen, bei zu wenig Bedienfläche vor dem Schrank."],
+  ["Vorteile des elektronischen Haushaltszählers (eHZ)?","Genauer, geringe Eigenverluste, Anzeige der aktuellen Leistung, mehrere Tarife, Fernauslesung über Smart-Meter-Gateway möglich."],
+  ["Warum flexible interne Verdrahtung mit ausreichendem Querschnitt?","Zusätzliche Dauerlasten (Wallbox, Wärmepumpe) erhöhen den Strom – die Verdrahtung muss für Grund- plus Dauerlast ausgelegt sein."]
+ ],
+ schutz:[
+  ["Aufgabe eines RCD 30 mA – und 300 mA?","30 mA: zusätzlicher Personenschutz.<br>300 mA: Brandschutz."],
+  ["Wo ist ein RCD ≤ 30 mA Pflicht (VDE 0100-410)?","Steckdosenstromkreise bis 32 A für Laien und Endstromkreise für Beleuchtung in Wohnungen."],
+  ["RCD Typ AC – A – F – B?","AC: nur Wechselfehlerstrom (in Deutschland nicht zulässig).<br>A: zusätzlich pulsierender Gleichfehlerstrom.<br>F: zusätzlich Mischfrequenzen (z. B. Waschmaschine mit FU).<br>B: zusätzlich glatter Gleichfehlerstrom (FU, PV, Wallbox)."],
+  ["Was ist ein AFDD?","Brandschutzschalter: erkennt serielle und parallele Fehlerlichtbögen durch Auswertung von Strom- und Spannungsverlauf, meist mit integriertem LS."],
+  ["Auslösemechanismen eines LS-Schalters?","Thermisch (Bimetall) bei Überlast · elektromagnetisch bei Kurzschluss."],
+  ["Charakteristik B und C – magnetische Auslösung?","B: 3- bis 5-facher Bemessungsstrom · C: 5- bis 10-facher Bemessungsstrom."],
+  ["Abschaltzeit im TN-System (230 V)?","Endstromkreise bis 32 A: 0,4 s · Verteilerstromkreise und über 32 A: 5 s."],
+  ["Maximale Schleifenimpedanz?","Z_S ≤ U_0 / I_a (I_a = Strom, der in der geforderten Zeit sicher abschaltet, z. B. 5 · I_n bei B)."],
+  ["Reihenfolge der Prüfung nach DIN VDE 0100-600?","Besichtigen – Erproben – Messen (Schutzleiter-Durchgang, Isolationswiderstand, Schleifenimpedanz, RCD, Drehfeld, Spannungsfall bei Bedarf), dann dokumentieren."],
+  ["Isolationswiderstand 230/400-V-Anlage?","Messspannung 500 V DC · Grenzwert mind. 1 MΩ (SELV/PELV: 250 V, mind. 0,5 MΩ)."],
+  ["Alle Stromkreise zeigen denselben niedrigen R_iso?","Wahrscheinlich wurde ein angeschlossener Überspannungsableiter mitgemessen – vor der Messung abklemmen."],
+  ["Mindestmessstrom bei der Schutzleiter-Durchgangsmessung?","200 mA – mit der R_iso-Einstellung ist keine Aussage möglich."],
+  ["Maximaler Erdungswiderstand im TT-System mit RCD?","R_A ≤ 50 V / I_Δn → bei 30 mA: 1667 Ω"],
+  ["Wer prüft Geräte nach DIN VDE 0701-0702?","Eine Elektrofachkraft bzw. befähigte Person."],
+  ["Grenzwerte Geräteprüfung (VDE 0701-0702)?","R_SL: 0,3 Ω bis 5 m Leitung, je weitere 7,5 m + 0,1 Ω, max. 1 Ω.<br>R_iso SK I: 1 MΩ (mit Heizelement 0,3 MΩ) · SK II: 2 MΩ.<br>Schutzleiterstrom 3,5 mA · Berührungsstrom 0,5 mA."],
+  ["Die fünf Sicherheitsregeln?","1. Freischalten 2. Gegen Wiedereinschalten sichern 3. Spannungsfreiheit feststellen 4. Erden und kurzschließen 5. Benachbarte, unter Spannung stehende Teile abdecken."]
+ ],
+ leitung:[
+  ["Welche Schritte gehören zur Leitungsdimensionierung?","Betriebsstrom I_b → Schutzorgan I_n → Strombelastbarkeit I_z (Verlegeart, Häufung, Temperatur) → Spannungsfall → Abschaltbedingung prüfen."],
+  ["Überlastschutz-Bedingung?","I_b ≤ I_n ≤ I_z (und I_2 ≤ 1,45 · I_z)"],
+  ["Warum unterscheidet man Verlegearten?","Die Wärmeabfuhr ist unterschiedlich – je schlechter die Kühlung, desto geringer die Strombelastbarkeit."],
+  ["Verlegeart A1/A2?","In wärmegedämmten Wänden (A1: Aderleitungen im Rohr, A2: mehradrige Leitung im Rohr bzw. direkt in der Dämmung)."],
+  ["Verlegeart B1/B2 und C?","B: im Elektroinstallationsrohr bzw. -kanal auf oder in der Wand.<br>C: direkt auf oder in der Wand (z. B. NYM unter Putz)."],
+  ["Was passiert bei höherer Umgebungstemperatur?","Die Strombelastbarkeit sinkt: I_z mal Umrechnungsfaktor (z. B. PVC bei 40 °C: 0,87)."],
+  ["Was bedeutet Häufung?","Mehrere belastete Leitungen nebeneinander erwärmen sich gegenseitig – Reduktionsfaktor anwenden."],
+  ["Spannungsfall Wechselstrom?","ΔU = 2 · l · I · cos φ / (γ · A)"],
+  ["Spannungsfall Drehstrom?","ΔU = √3 · l · I · cos φ / (γ · A)"],
+  ["Empfohlener maximaler Spannungsfall vom Zähler bis zum Verbraucher?","3 % (DIN 18015-1)."],
+  ["Strom eines symmetrischen Drehstromverbrauchers (cos φ = 1)?","I = P / (√3 · U) – z. B. 21 kW an 400 V: 30,3 A."],
+  ["Warum braucht ein Drehstrom-Durchlauferhitzer keinen N?","Er ist symmetrisch belastet – der Strom im Sternpunkt ist null."]
+ ],
+ motor:[
+  ["Synchrondrehzahl?","n_s = f · 60 / p (p = Polpaarzahl). 50 Hz: p = 1 → 3000 1/min, p = 2 → 1500 1/min."],
+  ["Woran erkennst du einen Asynchronmotor?","Die Läuferdrehzahl liegt etwas unter der Synchrondrehzahl (Schlupf), z. B. 2950 statt 3000 1/min."],
+  ["Leistungsschild 230/400 V am 400-V-Netz?","Sternschaltung (Strangspannung 230 V)."],
+  ["Leistungsschild 400/690 V am 400-V-Netz?","Dreieckschaltung – auch Stern-Dreieck-Anlauf möglich."],
+  ["Was gibt die Leistungsangabe auf dem Leistungsschild an?","Die mechanisch an der Welle abgegebene Leistung P_ab."],
+  ["Wirkungsgrad Motor?","η = P_ab / P_zu · P_zu = √3 · U · I · cos φ"],
+  ["Auf welchen Wert stellst du den Motorschutzschalter ein?","Auf den Bemessungsstrom vom Leistungsschild (passend zur Schaltung)."],
+  ["Motor brummt, läuft aber nicht an – Ursachen?","Ein Außenleiter fehlt, Brücken falsch gesteckt, Lagerschaden/Antrieb blockiert."],
+  ["Drehrichtung ändern?","Zwei Außenleiter tauschen."],
+  ["Übersetzungsverhältnis Trafo?","ü = U_1 / U_2 = N_1 / N_2 = I_2 / I_1"],
+  ["Spartrafo – Trenntrafo – Sicherheitstrafo?","Spartrafo: keine galvanische Trennung.<br>Trenntrafo: galvanisch getrennt.<br>Sicherheitstrafo: getrennt und SELV-Ausgangsspannung."],
+  ["Wozu kompensiert man Blindleistung?","Netz und Leitungen entlasten (kleinerer Strom), Blindstromkosten vermeiden."],
+  ["Arten der Kompensation?","Einzel-, Gruppen- und Zentralkompensation."],
+  ["Warum nicht auf cos φ = 1 kompensieren?","Gefahr von Resonanz (Schwingkreis) und Überkompensation bei Teillast."],
+  ["Formeln Kompensation?","Q_C = P · (tan φ_1 − tan φ_2) · C = Q_C / (U² · 2π · f)"]
+ ],
+ gebaeude:[
+  ["Lichtstrom – Beleuchtungsstärke – Lichtausbeute?","Lichtstrom Φ in lm · Beleuchtungsstärke E = Φ / A in lx · Lichtausbeute η = Φ / P in lm/W"],
+  ["Merkmale guter Beleuchtung?","Ausreichende Beleuchtungsstärke, gleichmäßige Ausleuchtung, keine Blendung, gute Farbwiedergabe, kein Flimmern."],
+  ["Wirkungsgradverfahren?","E = n · Φ · η_B / A (n Lampen, η_B Beleuchtungswirkungsgrad, Wartungsfaktor beachten)."],
+  ["Kochendwassergerät – Durchlauferhitzer?","Kochend: kleines Volumen, offenes System, Niederdruckarmatur.<br>Durchlauferhitzer: geschlossenes System, Drehstrom, mehrere Zapfstellen, Normaldruckarmatur."],
+  ["Leistung zum Erwärmen von Wasser?","P = m · c · Δθ / t mit c = 4,19 kJ/(kg·K) (1 l Wasser ≈ 1 kg)"],
+  ["Vier Stationen des Kreisprozesses einer Wärmepumpe?","Verdampfen (Wärme aufnehmen) → Verdichten → Verflüssigen/Kondensieren (Wärme abgeben) → Entspannen."],
+  ["Wärmequellen einer Wärmepumpe?","Luft, Erdreich (Kollektor/Sonde), Grundwasser."],
+  ["Leistungszahl (COP)?","ε = P_th / P_el, z. B. 4 kW / 1,25 kW = 3,2"],
+  ["Typen von Überspannungsschutzgeräten?","Typ 1: Blitzstromableiter (Gebäudeeintritt/Zählerplatz)<br>Typ 2: Überspannungsableiter (Unterverteilung)<br>Typ 3: Geräteschutz (Endgerät)."],
+  ["Anzeige am Typ-2-Ableiter grün/rot?","Grün: funktionsfähig · Rot: Ableiter verbraucht – tauschen."],
+  ["Zusätzlicher Schutzpotentialausgleich im Bad immer nötig?","Nein – nur wenn fremde leitfähige Teile nicht schon über den Schutzpotentialausgleich verbunden sind."],
+  ["Kleinsteuerung: Warum wird Not-Aus als Öffner angeschlossen?","Drahtbruchsicherheit – eine Unterbrechung wirkt wie Betätigen und schaltet ab."],
+  ["Was ist eine Selbsthaltung?","Der Ausgang hält sich über einen eigenen Kontakt bzw. ein Speicherglied, bis Stopp oder Endschalter ihn zurücksetzen."],
+  ["Was ist KNX?","Bussystem der Gebäudeautomation: Sensoren und Aktoren kommunizieren über eine 2-Draht-Busleitung (SELV, 30 V DC), parametriert mit der ETS."]
+ ],
+ it:[
+  ["Typische private IP-Adresse am Heimrouter?","z. B. 192.168.178.1 mit Subnetzmaske 255.255.255.0 (/24)."],
+  ["Netzadresse und Broadcast von 192.168.178.1/24?","Netz: 192.168.178.0 · Broadcast: 192.168.178.255 · nutzbar .1 bis .254"],
+  ["PC zeigt 169.254.x.x – was bedeutet das?","APIPA: Der PC hat keinen DHCP-Server erreicht und sich selbst eine Adresse gegeben."],
+  ["Verbindung zum Router testen?","ping 192.168.178.1"],
+  ["IP-Konfiguration des PCs anzeigen?","ipconfig /all"],
+  ["Komponenten für 10 Gbit/s Kupfer?","Installationskabel Cat 7 bzw. Cat 7A, Datendosen und Patchfeld Cat 6A, Patchkabel Cat 6A – Linklänge max. 100 m."],
+  ["Strecke über 100 m?","Lichtwellenleiter (LWL) mit LWL-Patchfeldern und Medienkonvertern bzw. Switches mit SFP-Ports."],
+  ["Fehler bei der Abnahmemessung einer Datenverkabelung?","Unterbrechung, Kurzschluss, vertauschte Adern, Split Pair, NEXT/FEXT durch schlechte Verdrillung, Schirmfehler."],
+  ["Sicherheit beim Umgang mit LWL?","Nie in eine aktive Faser schauen (Laser), Glassplitter sicher entsorgen, Schutzbrille, Isopropanol nicht in Augen/Haut."],
+  ["Ursachen für schlechtes WLAN?","Dämpfung durch Wände/Decken, große Entfernung, viele Teilnehmer, Störungen durch andere WLANs oder Geräte im selben Frequenzband."]
+ ],
  ema:[
   ["Was regelt DIN VDE 0833 Teil 3?","Einbruch- und Überfallmeldeanlagen (EMA/ÜMA)."],
   ["Was bedeutet der Grad nach DIN EN 50131?","Einstufung von Grad 1 bis 4 nach Risiko und Täterprofil (Kenntnisse, Werkzeug)."],
@@ -265,6 +381,12 @@ const KARTEN = {
   ["1 kWh – was kann man damit z. B. machen?","Eine 10-W-LED 100 Stunden leuchten lassen."]
  ],
  fehler:[
+  ["RCD löst immer aus, wenn die Waschmaschine heizt.","Isolationsfehler im Heizstab (Feuchtigkeit) – Gerät nach VDE 0701-0702 prüfen. Bei Geräten mit Frequenzumrichter auch an Typ F denken."],
+  ["Eine Leuchte lässt sich nicht mehr ausschalten.","Leiterschluss: Schalter überbrückt, z. B. Isolationsschaden in der Schalterdose oder falsch angeklemmter Wechselschalter."],
+  ["Motorschutzschalter löst nach kurzer Zeit aus.","Überlast, Phasenausfall, falsch eingestellter Bemessungsstrom oder falsche Schaltung (Stern/Dreieck) – Leistungsschild prüfen."],
+  ["Schleifenimpedanz am Ende eines Kreises zu hoch.","Schlechte Klemmstelle, Leitung zu lang oder Querschnitt zu klein – Abschaltbedingung nicht erfüllt, Fehler suchen bzw. Querschnitt erhöhen."],
+  ["Alle Stromkreise zeigen denselben niedrigen Isolationswert.","Überspannungsableiter mitgemessen – abklemmen und neu messen."],
+  ["Neuer PC bekommt die Adresse 169.254.x.x.","Kein DHCP-Server erreicht: Patchkabel, Dose, Switch-Port und Router prüfen."],
   ["EMA: „MG 3 nicht in Ruhe“ – Scharfschalten geht nicht.","Kein Defekt: Zwangsläufigkeit. In Meldegruppe 3 ist ein Fenster oder eine Tür offen bzw. nicht verriegelt."],
   ["EMA: Sabotagealarm in der Nacht, Anlage unscharf.","Sabotagekontakt hat ausgelöst: Gehäusedeckel offen, Gerät beschädigt oder Leitung unterbrochen. Vor Ort prüfen."],
   ["BMA: Feueralarm in der Werkstatt nach Schweißarbeiten.","Rauchmelder durch Schweißrauch ausgelöst. Künftig Melder vorher abschalten lassen (Freigabe) – und danach wieder einschalten."],
@@ -283,6 +405,96 @@ const KARTEN = {
 /* ---------- Quizfragen ----------
    typ: mc (eine richtig), zahl (Toleranz in %), zuord (Paare); k = Matrixkoordinate */
 const QUIZ = {
+ netz:[
+  {typ:"mc",k:"IA1",f:"Wer legt fest, welches Netzsystem (z. B. TN-C-S oder TT) in einem Gebäude installiert wird?",o:["der Bauherr","der Elektroinstallateur","der Netzbetreiber"],r:2,e:"Das Netzsystem gibt der Verteilnetzbetreiber vor."},
+  {typ:"zuord",k:"IA1",f:"Ordne die Buchstaben der Netzsystem-Bezeichnung zu.",p:[["T","Sternpunkt direkt geerdet"],["N","Körper über Schutzleiter mit dem Sternpunkt verbunden"],["C","N und PE gemeinsam als PEN"],["S","N und PE getrennt geführt"]],e:"TN-C-S: zuerst PEN, ab dem Aufteilungspunkt N und PE getrennt."},
+  {typ:"mc",k:"IA2",f:"In einer Verteilung kommt die Zuleitung als TN-C (4 Leiter) an. Kannst du direkt einen RCD einbauen?",o:["ja, der PEN wird einfach durch den RCD geführt","nur wenn der PEN vor dem RCD in N und PE aufgeteilt wird","nein, im TN-System sind RCDs verboten"],r:1,e:"Der PE darf nie durch den RCD geführt werden. Nach der Aufteilung: N durch den RCD, PE daran vorbei."},
+  {typ:"mc",k:"IA2",f:"Warum teilt man den PEN möglichst schon am Einspeisepunkt (HAK/Zählerplatz) auf?",o:["damit weniger Kupfer gebraucht wird","damit keine vagabundierenden Ströme über Schutzleiter und Gebäudeteile fließen","weil der Netzbetreiber dann weniger Strom misst"],r:1,e:"Ab der Aufteilung fließt der Betriebsstrom nur über N – nicht über Schirme, Rohre und PE."},
+  {typ:"mc",k:"IA2",f:"Eine Leuchte lässt sich nicht mehr ausschalten. Welche Fehlerart liegt vor?",o:["Kurzschluss","Körperschluss","Leiterschluss","Erdschluss"],r:2,e:"Leiterschluss: Verbindung zwischen Leitern über einen Verbraucher – hier ist der Schalter überbrückt."},
+  {typ:"mc",k:"IA1",f:"In welcher Norm ist die Ausführung von Fundamenterdern geregelt?",o:["DIN VDE 0100-600","DIN 18014","DIN VDE 0701-0702"],r:1,e:"DIN 18014 – Fundamenterder."},
+  {typ:"mc",k:"IA1",f:"Welche Maschenweite darf ein Fundamenterder höchstens haben?",o:["10 m × 10 m","20 m × 20 m","50 m × 50 m"],r:1,e:"Maschenweite max. 20 m × 20 m."},
+  {typ:"mehr",k:"IA1",f:"Was wird an die Haupterdungsschiene angeschlossen?",o:["Fundamenterder bzw. Ringerder","metallene Wasserleitung","Antennenerdung","Neutralleiter jedes Endstromkreises","Schutzleiter der Hauptleitung"],r:[0,1,2,4],e:"Neutralleiter der Endstromkreise gehören nicht an die Haupterdungsschiene."},
+  {typ:"mc",k:"IA1",f:"Welchen Mindestquerschnitt (Cu) hat ein Schutzpotentialausgleichsleiter zur Haupterdungsschiene?",o:["1,5 mm²","6 mm²","50 mm²"],r:1,e:"Mindestens 6 mm² Cu (halber Querschnitt des größten Schutzleiters, max. 25 mm²)."},
+  {typ:"zahl",k:"IA3",f:"Eine Erdungsleitung aus Kupfer (16 mm², γ = 56 m/(Ω·mm²)) ist 15 m lang. Berechne ihren Widerstand in mΩ.",l:16.74,tol:2,einheit:"mΩ",e:"R = l / (γ · A) = 15 m / (56 · 16 mm²) = 0,0167 Ω = 16,7 mΩ"}
+ ],
+ zaehler:[
+  {typ:"mc",k:"IA1",f:"Seit wann gilt die aktuelle Anwendungsregel VDE-AR-N 4100?",o:["01.01.2000","seit Oktober 2018","01.04.2019","31.12.2022"],r:2,e:"Die VDE-AR-N 4100 gilt seit dem 01.04.2019."},
+  {typ:"mc",k:"IA2",f:"Ein Kunde erweitert seine Bestandsanlage um eine Wallbox. Gilt die VDE-AR-N 4100?",o:["nein, nur für Neubauten","ja, auch bei Erweiterungen und Änderungen","nur, wenn die Anlage älter als 2000 ist"],r:1,e:"Die Anwendungsregel gilt auch für Erweiterungen und Änderungen bestehender Kundenanlagen."},
+  {typ:"mc",k:"IA1",f:"Welche Ausstattung ist im netzseitigen Anschlussraum (NAR) Pflicht?",o:["4-poliges Cu-Sammelschienensystem","5-poliges Cu-Sammelschienensystem","nur eine Hutschiene 35 mm"],r:1,e:"5-polig: L1, L2, L3, N, PE."},
+  {typ:"zuord",k:"IA1",f:"Ordne das Mindest-Kurzschlussschaltvermögen dem Bereich zu.",p:[["NAR (SLS-Schalter)","25 kA"],["AAR","10 kA"],["Verteilerfeld","6 kA"]],e:"Je näher am Netz, desto höher der mögliche Kurzschlussstrom."},
+  {typ:"mehr",k:"IA1",f:"Wie darf die Hauptleitung vom HAK zum Zählerschrank angeschlossen werden?",o:["von unten, hinten oder seitlich in den NAR","über ein seitlich angeordnetes Einspeisegehäuse","nur von unten","nur über ein separates Einspeisegehäuse"],r:[0,1],e:"Einführung von unten, hinten oder seitlich in den NAR – oder über ein seitliches Einspeisegehäuse."},
+  {typ:"mehr",k:"IA2",f:"Welche Aussagen zum RfZ (Raum für Zusatzanwendungen) sind richtig?",o:["Das RfZ liegt innerhalb eines Zählerfeldes.","Dort sitzen Smart-Meter-Gateway und Steuergeräte des Netzbetreibers.","Die Elektrofachkraft parametriert das Smart-Meter-Gateway.","Die Elektrofachkraft installiert einen Spannungsabgriff zum RfZ.","Die Elektrofachkraft legt ein Patchkabel vom RfZ zum APZ.","Die Geräte im RfZ werden im Verteilerfeld abgesichert."],r:[0,1,3,4],e:"Das Gateway parametriert der Messstellenbetreiber – nicht die Elektrofachkraft. Abgesichert wird nicht im Verteilerfeld."},
+  {typ:"mehr",k:"IA2",f:"Welche Aussagen zum APZ (Abschlusspunkt Zählerplatz) sind richtig?",o:["Das APZ darf an beliebiger Stelle sitzen.","Im APZ kann ein Router des Netzbetreibers installiert werden.","Im APZ kann der WLAN-Router des Kunden sitzen.","Die Elektrofachkraft installiert einen Spannungsabgriff zum APZ.","Das APZ grenzt an die Ober- oder Unterkante des Zählerschranks."],r:[1,3,4],e:"Das APZ ist dem Netzbetreiber vorbehalten und hat eine feste Lage am Zählerschrank."},
+  {typ:"mehr",k:"IA2",f:"Was darf im Verteilerfeld montiert werden?",o:["RCD, LS und AFDD der Endstromkreise","Reiheneinbaugeräte wie KNX- oder Türsprechanlagen-Netzteile","bei Platzmangel ein eHZ mit BKE-Adapter","in Ausnahmefällen das Smart-Meter-Gateway"],r:[0,1],e:"Zähler und Gateway gehören in Zählerfeld bzw. RfZ – nicht ins Verteilerfeld."},
+  {typ:"mehr",k:"IA2",f:"Welche Eigenschaften werden von einem SLS-Schalter verlangt?",o:["hohes Ein-, Aus- und Kurzschlussschaltvermögen","Selektivität zu nachgeschalteten LS-Schaltern","Selektivität zu vorgeschalteten Schmelzsicherungen","Erkennen gefährlicher Fehlerströme über den Menschen","Schutz für den Zähler","darf nur von einer Elektrofachkraft geschaltet werden"],r:[0,1,2,4],e:"Fehlerstromschutz ist Aufgabe des RCD. Der SLS ist auch vom Laien bedienbar."},
+  {typ:"zahl",k:"IA3",f:"Eine Wallbox mit 11 kW (Drehstrom, 400 V, cos φ = 1) wird angeschlossen. Wie groß ist der Strom je Außenleiter in A?",l:15.88,tol:1,einheit:"A",e:"I = P / (√3 · U) = 11 000 W / (1,732 · 400 V) = 15,9 A"}
+ ],
+ schutz:[
+  {typ:"mc",k:"IA1",f:"Welcher RCD-Typ ist in Deutschland nicht zulässig?",o:["Typ AC","Typ A","Typ F","Typ B"],r:0,e:"Typ AC erfasst keine pulsierenden Gleichfehlerströme."},
+  {typ:"mc",k:"IA2",f:"Für eine Wallbox ohne eingebaute DC-Fehlerstromerkennung brauchst du …",o:["RCD Typ A","RCD Typ B","RCD Typ AC"],r:1,e:"Glatte Gleichfehlerströme erkennt nur Typ B (oder Typ A + 6-mA-DC-Erkennung in der Wallbox)."},
+  {typ:"mehr",k:"IA1",f:"Welche Aussagen zu RCDs nach DIN VDE 0100-410 sind richtig?",o:["Nur 16-A-Steckdosenkreise brauchen einen RCD.","Beleuchtungsstromkreise in Wohnungen brauchen einen RCD.","Nur Kreise in Bädern brauchen einen RCD.","RCDs für den zusätzlichen Personenschutz haben max. 30 mA.","Steckdosenkreise bis einschließlich 32 A brauchen einen RCD."],r:[1,3,4],e:"Seit 2018: Steckdosen bis 32 A und Beleuchtung in Wohnungen über RCD ≤ 30 mA."},
+  {typ:"mehr",k:"IA2",f:"Welche Aussagen zum AFDD (Brandschutzschalter) sind richtig?",o:["Meist ist ein LS-Schalter integriert.","Er überwacht den Verlauf von Strom und Spannung.","Er besteht nur aus elektromechanischen Bauteilen.","Er erkennt serielle und parallele Fehlerlichtbögen.","Er dient ausschließlich der Branderkennung durch Rauch."],r:[0,1,3],e:"Ein AFDD wertet elektronisch die Signalform aus – Rauch erkennt er nicht."},
+  {typ:"zahl",k:"IA3",f:"Endstromkreis 230 V mit LS B16. Abschaltung in 0,4 s erfordert I_a = 5 · I_n. Wie groß darf die Schleifenimpedanz Z_S höchstens sein (in Ω)?",l:2.875,tol:1,einheit:"Ω",e:"I_a = 5 · 16 A = 80 A → Z_S ≤ 230 V / 80 A = 2,88 Ω"},
+  {typ:"zahl",k:"IA3",f:"TT-System, RCD 30 mA, zulässige Berührungsspannung 50 V. Maximaler Erdungswiderstand R_A in Ω?",l:1666.7,tol:1,einheit:"Ω",e:"R_A ≤ 50 V / 0,03 A = 1667 Ω"},
+  {typ:"zahl",k:"IA3",f:"TT-System, RCD 300 mA, zulässige Berührungsspannung 50 V. Maximaler Erdungswiderstand R_A in Ω?",l:166.7,tol:1,einheit:"Ω",e:"R_A ≤ 50 V / 0,3 A = 167 Ω"},
+  {typ:"mc",k:"IA2",f:"Bei der Isolationsmessung zeigen alle Stromkreise denselben niedrigen Wert. Was ist die wahrscheinlichste Ursache?",o:["alle Leitungen sind feucht","der Überspannungsableiter wurde mitgemessen","das Messgerät ist auf 200 mA eingestellt"],r:1,e:"Überspannungsschutzgeräte vor der Isolationsmessung abklemmen."},
+  {typ:"mehr",k:"IA2",f:"Bei der RCD-Prüfung an einer Steckdose löst der RCD nicht aus. Mögliche Ursachen?",o:["Prüfgerät auf ½ · I_Δn eingestellt","Schutzleiter an der Steckdose fehlt","N und PE hinter dem RCD verbunden","LS-Schalter zu klein gewählt"],r:[0,1,2],e:"Ohne Fehlerstrom über PE – oder mit Rückfluss über N – sieht der RCD keine Differenz."},
+  {typ:"mc",k:"IA1",f:"Mit welchem Mindestmessstrom wird der Schutzleiter-Durchgang gemessen?",o:["2 mA","20 mA","200 mA"],r:2,e:"200 mA – sonst werden schlechte Klemmstellen nicht erkannt."},
+  {typ:"mc",k:"IA1",f:"Welche Abschaltzeit gilt im TN-System (230 V) für Endstromkreise bis 32 A?",o:["0,2 s","0,4 s","5 s"],r:1,e:"0,4 s; Verteilerstromkreise 5 s; TT-System 0,2 s."},
+  {typ:"zahl",k:"IA3",f:"Geräteprüfung: Verlängerung 25 m. Grenzwert R_SL = 0,3 Ω bis 5 m, je angefangene weitere 7,5 m + 0,1 Ω. Grenzwert in Ω?",l:0.6,tol:1,einheit:"Ω",e:"20 m / 7,5 m = 2,7 → 3 Zuschläge: 0,3 Ω + 3 · 0,1 Ω = 0,6 Ω"},
+  {typ:"mc",k:"IA2",f:"Ein Herd (Schutzklasse I mit Heizelementen) hat R_iso = 0,5 MΩ. Bewertung?",o:["unzulässig, Grenzwert 1 MΩ","zulässig, Grenzwert 0,3 MΩ – aber Gerät beobachten","unzulässig, Grenzwert 2 MΩ"],r:1,e:"Für SK I mit Heizelementen gilt 0,3 MΩ. Der Wert ist knapp – weiter beobachten."},
+  {typ:"zuord",k:"IA1",f:"Ordne die fünf Sicherheitsregeln der richtigen Reihenfolge zu.",p:[["1.","Freischalten"],["2.","Gegen Wiedereinschalten sichern"],["3.","Spannungsfreiheit feststellen"],["4.","Erden und kurzschließen"],["5.","Benachbarte Teile abdecken"]],e:"Vor jeder Arbeit – und in genau dieser Reihenfolge."}
+ ],
+ leitung:[
+  {typ:"mc",k:"IA1",f:"Welche Bedingung gilt für den Überlastschutz einer Leitung?",o:["I_n ≤ I_b ≤ I_z","I_b ≤ I_n ≤ I_z","I_z ≤ I_n ≤ I_b"],r:1,e:"Betriebsstrom ≤ Bemessungsstrom des Schutzorgans ≤ Strombelastbarkeit der Leitung."},
+  {typ:"zahl",k:"IA3",f:"Ein Durchlauferhitzer hat 18 kW an 400 V (Drehstrom, cos φ = 1). Betriebsstrom I_b in A?",l:25.98,tol:1,einheit:"A",e:"I = 18 000 W / (1,732 · 400 V) = 26,0 A"},
+  {typ:"mc",k:"IA2",f:"Betriebsstrom 30,3 A. Welchen LS-Schalter wählst du?",o:["25 A","32 A","35 A"],r:1,e:"Nächster Normwert über I_b: 32 A (35 A gibt es als LS nicht)."},
+  {typ:"mc",k:"IA2",f:"NYM in Wärmedämmung (A2), 3 belastete Adern: 6 mm² → 29 A, 10 mm² → 39 A. LS 32 A. Welcher Querschnitt?",o:["6 mm²","10 mm²","beide gehen"],r:1,e:"I_n = 32 A > 29 A → 6 mm² reicht nicht. 10 mm²: 32 A ≤ 39 A."},
+  {typ:"zahl",k:"IA3",f:"Strombelastbarkeit bei 30 °C: 39 A. Umrechnungsfaktor für 40 °C: 0,87. Neue Strombelastbarkeit in A?",l:33.93,tol:1,einheit:"A",e:"I_z = 39 A · 0,87 = 33,9 A – mit LS 32 A noch zulässig."},
+  {typ:"zahl",k:"IA3",f:"Drehstromleitung: l = 25 m, I = 32 A, cos φ = 1, A = 10 mm², Kupfer. Spannungsfall ΔU in V?",l:2.474,tol:2,einheit:"V",e:"ΔU = √3 · 25 m · 32 A / (56 · 10 mm²) = 2,47 V"},
+  {typ:"zahl",k:"IA3",f:"Wie viel Prozent sind 2,47 V Spannungsfall bei 400 V?",l:0.618,tol:2,einheit:"%",e:"2,47 V / 400 V · 100 % = 0,62 % – deutlich unter 3 %."},
+  {typ:"zahl",k:"IA3",f:"Wechselstromkreis: l = 18 m, I = 16 A, A = 2,5 mm², Kupfer, cos φ = 1. Spannungsfall in V?",l:4.114,tol:2,einheit:"V",e:"ΔU = 2 · 18 m · 16 A / (56 · 2,5 mm²) = 4,11 V (≈ 1,8 % von 230 V)"},
+  {typ:"mc",k:"IA1",f:"Welche Verlegeart liegt vor, wenn eine NYM-Leitung direkt in der Wärmedämmung einer Ständerwand liegt?",o:["A1/A2","C","E"],r:0,e:"A: in wärmegedämmten Wänden – schlechteste Wärmeabfuhr."},
+  {typ:"mc",k:"IA2",f:"Was passiert mit der Strombelastbarkeit, wenn mehrere belastete Leitungen gebündelt verlegt werden?",o:["sie steigt","sie bleibt gleich","sie sinkt (Häufungsfaktor)"],r:2,e:"Die Leitungen erwärmen sich gegenseitig."}
+ ],
+ motor:[
+  {typ:"zahl",k:"IA3",f:"Ein Drehstrommotor hat 2 Polpaare und läuft an 50 Hz. Synchrondrehzahl in 1/min?",l:1500,tol:0,einheit:"1/min",e:"n_s = 50 Hz · 60 / 2 = 1500 1/min"},
+  {typ:"zahl",k:"IA3",f:"Synchrondrehzahl 1500 1/min, Läuferdrehzahl 1440 1/min. Schlupf in %?",l:4,tol:1,einheit:"%",e:"s = (1500 − 1440) / 1500 · 100 % = 4 %"},
+  {typ:"mc",k:"IA2",f:"Leistungsschild 230/400 V, Netz 400 V. Wie schaltest du den Motor?",o:["Stern","Dreieck","Stern-Dreieck-Anlauf"],r:0,e:"Jeder Strang verträgt 230 V – im Stern liegen 400 V / √3 = 230 V an."},
+  {typ:"zahl",k:"IA3",f:"Motor: P_ab = 7,5 kW, η = 0,88, cos φ = 0,86, 400 V. Stromaufnahme in A?",l:14.3,tol:2,einheit:"A",e:"P_zu = 7500 W / 0,88 = 8523 W → I = 8523 W / (1,732 · 400 V · 0,86) = 14,3 A"},
+  {typ:"zahl",k:"IA3",f:"Ein Motor gibt 11 kW ab und nimmt 12,8 kW auf. Wirkungsgrad in %?",l:85.94,tol:1,einheit:"%",e:"η = P_ab / P_zu = 11 / 12,8 = 0,859 = 85,9 %"},
+  {typ:"mc",k:"IA1",f:"Die Angabe 15 kW auf dem Leistungsschild ist …",o:["die aufgenommene elektrische Leistung","die an der Welle abgegebene Leistung","die Scheinleistung"],r:1,e:"Das Leistungsschild nennt immer die mechanische Abgabeleistung."},
+  {typ:"mc",k:"IA2",f:"Ein Drehstrommotor brummt nach dem Einschalten, läuft aber nicht an. Wahrscheinlichste Ursache?",o:["ein Außenleiter fehlt","die Drehrichtung ist falsch","der Motor ist zu groß"],r:0,e:"Bei Phasenausfall entsteht kein Drehfeld – der Motor brummt nur."},
+  {typ:"mc",k:"IA1",f:"Wie änderst du die Drehrichtung eines Drehstrommotors?",o:["N und PE tauschen","zwei Außenleiter tauschen","alle drei Außenleiter tauschen"],r:1,e:"Zwei Außenleiter tauschen kehrt das Drehfeld um."},
+  {typ:"zahl",k:"IA3",f:"Trafo 230 V / 24 V. Übersetzungsverhältnis ü?",l:9.583,tol:1,einheit:"",e:"ü = 230 V / 24 V = 9,58"},
+  {typ:"zahl",k:"IA3",f:"Sechs 24-V-Magnetventile mit je 150 mA laufen gleichzeitig. Welche Scheinleistung braucht der Trafo mindestens (in VA)?",l:21.6,tol:1,einheit:"VA",e:"S = 24 V · 6 · 0,15 A = 21,6 VA"},
+  {typ:"zahl",k:"IA3",f:"Gerät 230 V, 10 A, cos φ = 0,75 soll auf cos φ = 0,95 kompensiert werden (tan φ_1 = 0,882, tan φ_2 = 0,329). Kondensatorblindleistung Q_C in var?",l:954,tol:2,einheit:"var",e:"P = 230 V · 10 A · 0,75 = 1725 W → Q_C = 1725 W · (0,882 − 0,329) = 954 var"},
+  {typ:"zahl",k:"IA3",f:"Q_C = 954 var bei 230 V, 50 Hz. Kapazität in µF?",l:57.4,tol:3,einheit:"µF",e:"C = Q_C / (U² · 2π · f) = 954 / (230² · 314) = 57,4 µF"},
+  {typ:"mc",k:"IA2",f:"Warum kompensiert man nicht auf cos φ = 1?",o:["weil Kondensatoren dann zu klein sind","wegen Resonanzgefahr und Überkompensation bei Teillast","weil der Netzbetreiber das verbietet"],r:1,e:"Kapazität und Induktivität bilden einen Schwingkreis."}
+ ],
+ gebaeude:[
+  {typ:"zahl",k:"IA3",f:"Eine Beleuchtungsanlage liefert 40 000 lm bei 500 W. Lichtausbeute in lm/W?",l:80,tol:0.5,einheit:"lm/W",e:"η = Φ / P = 40 000 lm / 500 W = 80 lm/W"},
+  {typ:"zahl",k:"IA3",f:"Raum 8 m × 6 m, 12 Leuchten mit je 3400 lm, Beleuchtungswirkungsgrad 0,6 (Wartungsfaktor enthalten). Beleuchtungsstärke in lx?",l:510,tol:1,einheit:"lx",e:"E = 12 · 3400 lm · 0,6 / 48 m² = 510 lx – 500 lx werden erreicht."},
+  {typ:"zahl",k:"IA3",f:"40 Leuchten mit je 58 W werden durch LED-Leuchten mit je 20 W ersetzt. 10 h am Tag, 250 Tage, 0,30 €/kWh. Ersparnis pro Jahr in €?",l:1140,tol:1,einheit:"€",e:"40 · 38 W = 1,52 kW · 2500 h = 3800 kWh · 0,30 €/kWh = 1140 €"},
+  {typ:"zahl",k:"IA3",f:"Ein Durchlauferhitzer soll 12 l/min von 12 °C auf 45 °C erwärmen (c = 4,19 kJ/(kg·K), Verluste vernachlässigt). Leistung in kW?",l:27.65,tol:2,einheit:"kW",e:"P = 12 kg · 4,19 kJ/(kg·K) · 33 K / 60 s = 27,7 kW"},
+  {typ:"zahl",k:"IA3",f:"Eine Wärmepumpe gibt 9 kW Wärme ab und nimmt 2,4 kW elektrisch auf. Leistungszahl ε?",l:3.75,tol:1,einheit:"",e:"ε = P_th / P_el = 9 kW / 2,4 kW = 3,75"},
+  {typ:"zuord",k:"IA1",f:"Ordne die Bauteile der Wärmepumpe ihrer Aufgabe zu.",p:[["Verdampfer","nimmt Umweltwärme auf"],["Verdichter","erhöht Druck und Temperatur"],["Verflüssiger","gibt Wärme an das Heizwasser ab"],["Expansionsventil","senkt den Druck"]],e:"Verdampfen → Verdichten → Verflüssigen → Entspannen."},
+  {typ:"zuord",k:"IA1",f:"Ordne die Überspannungsschutzgeräte dem Einbauort zu.",p:[["Typ 1","Zählerplatz / Gebäudeeintritt"],["Typ 2","Unterverteilung"],["Typ 3","vor dem Endgerät"]],e:"Gestaffelter Schutz: Blitzstrom → Überspannung → Feinschutz."},
+  {typ:"mc",k:"IA2",f:"Warum braucht ein Drehstrom-Durchlauferhitzer keinen Neutralleiter?",o:["weil er schutzisoliert ist","weil er symmetrisch belastet ist","weil er nur 230 V braucht"],r:1,e:"Bei symmetrischer Last heben sich die Ströme im Sternpunkt auf."},
+  {typ:"mc",k:"IA2",f:"Warum wird der Not-Aus-Taster an einer Kleinsteuerung als Öffner angeschlossen?",o:["weil Öffner billiger sind","Drahtbruchsicherheit: eine Unterbrechung schaltet ab","damit die Lampe leuchtet"],r:1,e:"Ein Drahtbruch wirkt wie Betätigen – die Anlage geht in den sicheren Zustand."},
+  {typ:"mc",k:"IA1",f:"Mit welcher Spannung arbeitet die KNX-Busleitung?",o:["230 V AC","30 V DC (SELV)","12 V AC"],r:1,e:"KNX TP: 30 V DC, Sicherheitskleinspannung."}
+ ],
+ it:[
+  {typ:"mc",k:"IA1",f:"Welche Subnetzmaske gehört zu einem /24-Netz?",o:["255.255.0.0","255.255.255.0","255.255.255.255"],r:1,e:"/24 = 24 Einsen = 255.255.255.0"},
+  {typ:"mc",k:"IA1",f:"Router 192.168.178.1/24. Wie lautet die Broadcast-Adresse?",o:["192.168.178.0","192.168.178.255","192.168.255.255"],r:1,e:"Alle Host-Bits auf 1: 192.168.178.255"},
+  {typ:"mc",k:"IA2",f:"Welche feste IP-Adresse kannst du einem Laptop im Netz 192.168.178.0/24 geben?",o:["192.168.178.0","192.168.178.20","192.168.178.255","192.168.179.20"],r:1,e:".0 ist die Netzadresse, .255 der Broadcast, 179 ist ein anderes Netz."},
+  {typ:"mc",k:"IA2",f:"Ein PC zeigt die Adresse 169.254.12.13. Was ist passiert?",o:["er hat eine Internetadresse bekommen","er hat keinen DHCP-Server erreicht","er ist als Router konfiguriert"],r:1,e:"APIPA-Adresse: Kabel, Switch oder DHCP-Server prüfen."},
+  {typ:"zuord",k:"IA1",f:"Ordne den Befehl seiner Aufgabe zu.",p:[["ping","Verbindung zu einem Gerät testen"],["ipconfig /all","IP-Konfiguration anzeigen"],["tracert","Weg der Pakete anzeigen"]],e:"Konsolenbefehle unter Windows."},
+  {typ:"mc",k:"IA1",f:"Maximale Länge einer Kupfer-Ethernetstrecke (Channel)?",o:["50 m","100 m","500 m"],r:1,e:"100 m – darüber Lichtwellenleiter."},
+  {typ:"mc",k:"IA2",f:"Vom Etagenverteiler zum Gebäudeverteiler sind es 250 m. Was planst du?",o:["Cat 7 mit Repeater in der Wand","Lichtwellenleiter mit LWL-Patchfeldern und Medienkonvertern bzw. SFP-Switches","WLAN-Brücke"],r:1,e:"Über 100 m: LWL."},
+  {typ:"mehr",k:"IA2",f:"Was kann eine schlechte WLAN-Verbindung verursachen?",o:["Stahlbetondecken und Wände","große Entfernung zum Router","viele Nachbar-WLANs auf demselben Kanal","ein zu kurzes Patchkabel am Router"],r:[0,1,2],e:"Dämpfung, Entfernung und Störungen im selben Frequenzband."},
+  {typ:"mc",k:"IA1",f:"Was ist beim Arbeiten mit Lichtwellenleitern besonders wichtig?",o:["nie in eine aktive Faser schauen","Fasern immer mit Wasser reinigen","Glasfaserreste in den Hausmüll"],r:0,e:"Unsichtbares Laserlicht schädigt das Auge. Glassplitter sicher sammeln."}
+ ],
  ema:[
   {typ:"mc",k:"IA1",f:"Ein Juwelier bekommt eine EMA. Welche VdS-Klasse ist richtig?",o:["Klasse A","Klasse B","Klasse C"],r:2,e:"Juweliere gehören zu den Sicherungsklassen SG-3 bis SG-6 → VdS-Klasse C."},
   {typ:"mc",k:"IA1",f:"Wie lange muss der Akku einer EMA Klasse B ohne Störungsweiterleitung überbrücken?",o:["12 h","30 h","60 h","72 h"],r:2,e:"Klasse B/C: 60 h, mit Weiterleitung an eine ständig besetzte Stelle 30 h."},
@@ -366,6 +578,10 @@ const QUIZ = {
   {typ:"mc",k:"IA1",f:"Was gibt das Energielabel eines Kühlschranks an?",o:["die Leistung beim Einschalten","die Effizienzklasse und den Jahresverbrauch in kWh","den Preis pro Jahr"],r:1,e:"Mit dem Jahresverbrauch und deinem Strompreis berechnest du die Kosten selbst."}
  ],
  fehler:[
+  {typ:"mc",k:"IA2",f:"Der RCD löst immer aus, sobald die Waschmaschine heizt. Was prüfst du zuerst?",o:["den LS-Schalter","den Isolationswiderstand des Heizstabs (Geräteprüfung)","die Schleifenimpedanz"],r:1,e:"Typischer Isolationsfehler im Heizelement – Fehlerstrom fließt über PE ab."},
+  {typ:"mc",k:"IA2",f:"Der Motorschutzschalter eines Pumpenmotors löst nach kurzer Zeit aus. Was ist KEINE mögliche Ursache?",o:["Phasenausfall","falsch eingestellter Bemessungsstrom","Drehrichtung vertauscht bei sonst freier Pumpe"],r:2,e:"Die Drehrichtung erhöht den Strom nicht wesentlich – Phasenausfall und Überlast schon."},
+  {typ:"mc",k:"IA2",f:"Am Ende eines Steckdosenkreises B16 misst du Z_S = 3,4 Ω. Was folgt daraus?",o:["alles in Ordnung","Abschaltbedingung nicht erfüllt (max. 2,88 Ω) – Ursache suchen","RCD tauschen"],r:1,e:"Bei 3,4 Ω fließen nur ca. 68 A – der B16 löst nicht sicher in 0,4 s aus."},
+  {typ:"mc",k:"IA2",f:"Ein neu angeschlossener PC hat die Adresse 169.254.7.21. Was prüfst du?",o:["die Netzwerkverbindung zum Router (Kabel, Dose, Switch)","den Bildschirm","die Festplatte"],r:0,e:"Kein DHCP erreichbar → physikalische Verbindung prüfen."},
   {typ:"mc",k:"IA2",f:"Kunde: „Die Alarmanlage lässt sich nicht scharfschalten, im Display steht ‚MG 3 nicht in Ruhe‘.“ Was ist die wahrscheinlichste Ursache?",o:["Akku leer","In Meldegruppe 3 ist ein Fenster oder eine Tür offen.","Die Sirene ist defekt."],r:1,e:"Zwangsläufigkeit – kein Defekt. Erst Fenster und Türen prüfen."},
   {typ:"mc",k:"IA2",f:"Nachts meldet die unscharfe EMA einen Sabotagealarm. Was prüfst du zuerst?",o:["die Melder in Ruhe-Meldegruppen","Gehäusedeckel und Leitungen der Sabotagemeldegruppe","den Strompreis"],r:1,e:"Sabotage wird immer überwacht: Deckel offen, Gerät abgerissen oder Leitung unterbrochen."},
   {typ:"mc",k:"IA2",f:"Nach Schweißarbeiten in der Werkstatt gab es einen Feueralarm. Was rätst du dem Betreiber?",o:["Rauchmelder durch Wärmemelder ersetzen","Melder vor Heißarbeiten abschalten lassen und danach wieder einschalten","BMA dauerhaft abschalten"],r:1,e:"Abschaltung mit Freigabe vor Heißarbeiten – und danach unbedingt wieder einschalten."},
@@ -380,16 +596,13 @@ const QUIZ = {
  ]
 };
 
-/* ---------- 8-Wochen-Plan ---------- */
+/* ---------- 4-Wochen-Plan ---------- */
+const PRUEFUNGSTERMINE = "https://www.elektroverband-bayern.de/aktuelles/termine-gp.html";
 const PLAN = [
- ["Woche 1","Leistung & Energiekosten","Karteikarten U·I und €, Quiz Energiekosten, Rechentrainer Energievergleich","Lies bei drei Geräten zu Hause das Typenschild ab und berechne, was sie dich im Jahr kosten."],
- ["Woche 2","Transistor & LED","Karteikarten Transistor und LED, Quiz, Rechentrainer LED und Transistor","Rechentrainer LED: Schaffe 5 richtige Aufgaben hintereinander."],
- ["Woche 3","Spannungsfall & PoE","Quiz Leistung, Spannungsfall und PoE, Rechentrainer Spannungsfall","Erkläre einem Mitschüler in einer Minute, warum 24-V-Anlagen weniger Probleme mit dem Spannungsfall haben."],
- ["Woche 4","EMA","Karteikarten EMA, Quiz EMA, Wiederholungsblatt EMA Teil A–D","Finde im Betrieb drei EMA-Melder und bestimme jeweils die Überwachungsart (ohne Fotos von Personen oder Adressen)."],
- ["Woche 5","EMA-Akku & BMA","Wiederholungsblatt EMA Teil E, Karteikarten BMA, Quiz BMA, Wiederholungsblatt BMA","Miss deinen Klassenraum aus und plane die Rauchmelder mit A_M und D_H."],
- ["Woche 6","Antennen Grundlagen & Pegel","Karteikarten Antennentechnik, Quiz, Wiederholungsblatt Antennentechnik Teil 1","Zeichne die Antennenanlage bei dir zu Hause oder im Betrieb als Übersichtsschaltplan."],
- ["Woche 7","Satellitenempfang & Fehlersuche","Rechentrainer Sat-ZF, Wiederholungsblatt Antennentechnik Teil 2, Bereich Fehlersuche","Schau dir eine Sat-Anlage zu Hause oder im Betrieb an: Welches LNB und welcher Multischalter sind verbaut? Begründe, warum genau diese Bauteile gewählt wurden."],
- ["Woche 8","Prüfungsmix","Prüfungsmix mehrmals, alle Karteikarten in Fach 3","Schaffe den Prüfungsmix dreimal mit mindestens 80 %."]
+ ["Woche 1","Netz, Zählerplatz & Schutzmaßnahmen","Netzsysteme/Erdung, Zählerplatz VDE-AR-N 4100, Schutzmaßnahmen und Prüfen (Karteikarten + Quiz), Rechentrainer Schleifenimpedanz und Erdungswiderstand","Schau dir im Betrieb einen Zählerschrank an: Zeige NAR, Zählerfeld, RfZ, APZ, AAR und Verteilerfeld (ohne Fotos von Kundenadressen)."],
+ ["Woche 2","Leitungen, Motor & Trafo","Leitungsdimensionierung, Motor/Trafo/Kompensation, Leistung und Spannungsfall (Karteikarten + Quiz), Rechentrainer Motorstrom und Spannungsfall","Lies an einem Motor im Betrieb das Leistungsschild ab: Schaltung, Bemessungsstrom, Einstellwert des Motorschutzes, Wirkungsgrad."],
+ ["Woche 3","Gebäudetechnik, IT, Elektronik, EMA/BMA","Gebäudetechnik, IT-Netze, Transistor/LED, Einbruch- und Brandmeldeanlagen, Wiederholungsblätter EMA/BMA","Plane für deinen Klassenraum die Beleuchtung (500 lx) mit dem Wirkungsgradverfahren und die Rauchmelder mit A_M."],
+ ["Woche 4","Antennen, Energie, Fehlersuche & Prüfungsmix","Antennentechnik, Energiekosten, Fehlersuche, Prüfungsmix mehrmals, alle Karteikarten in Fach 3","Schaffe den Prüfungsmix dreimal mit mindestens 80 %."]
 ];
 const MATERIAL = [
  ["Wiederholung EMA","https://bs1-et.github.io/EIE13-Pruefungsfit/material/EIE13_GuS_100_Wiederholung-Pruefung-EMA_26.pdf"],
@@ -399,7 +612,7 @@ const MATERIAL = [
 ];
 
 /* ---------- Speicher (nur lokal) ---------- */
-const SPEICHER = "pruefungsfit_eeg13_sbsz_v1";
+const SPEICHER = "pruefungsfit_eeg13_sbsz_v2";
 let stand = {quiz:{}, fach:{}, plan:{}, trainer:{}};
 function laden(){try{const s=JSON.parse(localStorage.getItem(SPEICHER));if(s)stand=Object.assign(stand,s);}catch(e){}}
 function sichern(){try{localStorage.setItem(SPEICHER,JSON.stringify(stand));}catch(e){}}
@@ -411,7 +624,7 @@ const zahl = s => parseFloat(String(s).replace(",","."));
 const de = (x,n=2) => Number(x).toLocaleString("de-DE",{maximumFractionDigits:n});
 const mischen = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
 const zufall = (a,b,schritt=1) => Math.round((a+Math.random()*(b-a))/schritt)*schritt;
-function sub(t){return t.replace(/\b([A-Za-zΔ])_([A-Za-z]{1,3})\b/g,"$1<sub>$2</sub>");}
+function sub(t){return t.replace(/(^|[^A-Za-z0-9])([A-Za-zΔφηεθ])_([A-Za-z0-9Δ]{1,3})(?![A-Za-z0-9])/g,"$1$2<sub>$3</sub>");}
 
 function kartenFortschritt(id){
  const n=KARTEN[id].length; let p=0;
@@ -420,7 +633,7 @@ function kartenFortschritt(id){
 }
 
 /* ---------- Navigation ---------- */
-const SEITEN = [["start","🗺️ Lernlandkarte"],["plan","📅 8-Wochen-Plan"],["trainer","🧮 Rechentrainer"],["mix","🎯 Prüfungsmix"],["info","ℹ️ So lernst du"]];
+const SEITEN = [["start","🗺️ Lernlandkarte"],["plan","📅 4-Wochen-Plan"],["trainer","🧮 Rechentrainer"],["mix","🎯 Prüfungsmix"],["info","ℹ️ So lernst du"]];
 function nav(aktiv){
  $("#nav").innerHTML = SEITEN.map(([id,t])=>`<button class="${id===aktiv?'aktiv':''}" onclick="zeige('${id}')">${t}</button>`).join("");
 }
@@ -436,8 +649,9 @@ function seiteStart(){
  $("#app").innerHTML = `
  <div class="karte">
   <h2>Deine Lernlandkarte</h2>
-  <p>In acht Wochen ist Gesellenprüfung. Wähle einen Bereich: Mit <b>Karteikarten</b> wiederholst du das Wissen, im <b>Quiz</b> prüfst du dich selbst (bestanden ab 80 %), im <b>Rechentrainer</b> übst du mit immer neuen Zahlen.</p>
+  <p>In vier Wochen ist Gesellenprüfung Teil 2. Wähle einen Bereich: Mit <b>Karteikarten</b> wiederholst du das Wissen, im <b>Quiz</b> prüfst du dich selbst (bestanden ab 80 %), im <b>Rechentrainer</b> übst du mit immer neuen Zahlen.</p>
   <p class="klein">Bestanden: ${fertig} von ${BEREICHE.length} Bereichen · Dein Fortschritt wird nur in diesem Browser gespeichert.</p>
+  <div class="info">📆 <b>Wann ist deine Prüfung?</b> Die offiziellen Termine der Gesellenprüfung veröffentlicht der Landesinnungsverband: <a href="${PRUEFUNGSTERMINE}" target="_blank" rel="noopener">Prüfungstermine beim Elektroverband Bayern</a></div>
  </div>
  ${(()=>{const w=PLAN.findIndex((_,i)=>!stand.plan[i]); if(w<0)return '<div class="karte hinweis"><b>Alle Wochen erledigt!</b> Du bist bereit für die Prüfung. Viel Erfolg!</div>';
    return `<div class="karte challenge"><b>🏆 Challenge ${PLAN[w][0]} – ${PLAN[w][1]}</b><p style="margin:6px 0">${sub(PLAN[w][3])}</p><span class="klein">Diese Woche: ${PLAN[w][2]} · <a href="#" onclick="zeige('plan');return false">zum Plan</a></span></div>`;})()}
@@ -503,6 +717,8 @@ function quizFrage(){
  let html=`<div class="fortschritt">Frage ${Q.nr+1} von ${Q.fragen.length}</div><div class="frage">${sub(f.f)}</div>`;
  if(f.typ==="mc"){
   html+=`<div class="optionen">${f.o.map((o,i)=>`<label id="opt${i}"><input type="radio" name="mc" value="${i}"> ${sub(o)}</label>`).join("")}</div>`;
+ } else if(f.typ==="mehr"){
+  html+=`<p class="klein">Mehrere Antworten können richtig sein – kreuze alle richtigen an.</p><div class="optionen">${f.o.map((o,i)=>`<label id="opt${i}"><input type="checkbox" name="mehr" value="${i}"> ${sub(o)}</label>`).join("")}</div>`;
  } else if(f.typ==="zahl"){
   html+=`<input type="text" inputmode="decimal" autocomplete="off" id="eing" placeholder="Ergebnis"> ${f.einheit}`;
  } else {
@@ -520,6 +736,10 @@ function quizPruefen(){
   ok=+w.value===f.r;
   document.getElementById("opt"+f.r).classList.add("richtig");
   if(!ok)document.getElementById("opt"+w.value).classList.add("falsch");
+ } else if(f.typ==="mehr"){
+  const gew=[...document.querySelectorAll('input[name=mehr]:checked')].map(x=>+x.value); if(!gew.length)return;
+  ok = gew.length===f.r.length && f.r.every(i=>gew.includes(i));
+  f.o.forEach((_,i)=>{const el=document.getElementById("opt"+i); if(f.r.includes(i))el.classList.add("richtig"); else if(gew.includes(i))el.classList.add("falsch");});
  } else if(f.typ==="zahl"){
   const v=zahl($("#eing").value); if(isNaN(v))return;
   ok = f.tol===0 ? Math.abs(v-f.l)<1e-9 : Math.abs(v-f.l)<=Math.abs(f.l)*f.tol/100+1e-9;
@@ -554,6 +774,24 @@ function koordTabelle(){
 
 /* ---------- Rechentrainer mit Zufallswerten ---------- */
 const TRAINER = {
+ motor:{titel:"Motorstrom",neu(){
+   const p=[1.5,2.2,3,4,5.5,7.5,11,15][zufall(0,7)], eta=zufall(0.80,0.92,0.01), cos=zufall(0.78,0.88,0.01);
+   const pzu=p*1000/eta, i=pzu/(Math.sqrt(3)*400*cos);
+   return {text:`Leistungsschild eines Drehstrommotors: P = ${de(p,1)} kW, η = ${de(eta,2)}, cos φ = ${de(cos,2)}, Netz 400 V. Berechne die Stromaufnahme I in A.`,l:i,einheit:"A",tol:2,
+    loes:`P<sub>zu</sub> = ${de(p*1000,0)} W / ${de(eta,2)} = ${de(pzu,0)} W · I = P<sub>zu</sub> / (√3 · 400 V · ${de(cos,2)}) = ${de(i,2)} A → Motorschutz auf den Bemessungsstrom einstellen.`};}},
+ schleife:{titel:"Schleifenimpedanz",neu(){
+   const ch=["B","C"][zufall(0,1)], inn=[10,13,16,20,25][zufall(0,4)], ia=(ch==="B"?5:10)*inn, zs=230/ia;
+   return {text:`Endstromkreis 230 V im TN-System mit LS ${ch}${inn}. Für die Abschaltung in 0,4 s gilt I<sub>a</sub> = ${ch==="B"?5:10} · I<sub>n</sub>. Wie groß darf die Schleifenimpedanz Z<sub>S</sub> höchstens sein (in Ω)?`,l:zs,einheit:"Ω",tol:1,
+    loes:`I<sub>a</sub> = ${ch==="B"?5:10} · ${inn} A = ${ia} A · Z<sub>S</sub> ≤ U<sub>0</sub> / I<sub>a</sub> = 230 V / ${ia} A = ${de(zs,2)} Ω`};}},
+ drehstrom:{titel:"Spannungsfall Drehstrom",neu(){
+   const l=zufall(10,60), I=[16,20,25,32][zufall(0,3)], A=[2.5,4,6,10][zufall(0,3)], cos=[1,0.9,0.85][zufall(0,2)];
+   const du=Math.sqrt(3)*l*I*cos/(56*A), pz=du/400*100;
+   return {text:`Drehstromleitung NYM, Kupfer (γ = 56 m/(Ω·mm²)), l = ${l} m, I = ${I} A, A = ${de(A,1)} mm², cos φ = ${de(cos,2)}. Berechne den Spannungsfall ΔU in V.`,l:du,einheit:"V",tol:2,
+    loes:`ΔU = √3 · ${l} m · ${I} A · ${de(cos,2)} / (56 · ${de(A,1)} mm²) = ${de(du,2)} V = ${de(pz,2)} % von 400 V → ${pz<=3?'unter 3 %, in Ordnung':'über 3 % – größeren Querschnitt wählen'}.`};}},
+ wp:{titel:"Wärmepumpe",neu(){
+   const pth=zufall(4,12,0.5), cop=zufall(2.8,4.6,0.1), pel=Math.round(pth/cop*100)/100, eps=pth/pel;
+   return {text:`Eine Wärmepumpe gibt ${de(pth,1)} kW Wärme ab und nimmt dabei ${de(pel,2)} kW elektrische Leistung auf. Berechne die Leistungszahl ε.`,l:eps,einheit:"",tol:1,
+    loes:`ε = P<sub>th</sub> / P<sub>el</sub> = ${de(pth,1)} kW / ${de(pel,2)} kW = ${de(eps,2)} – aus 1 kWh Strom werden ${de(eps,1)} kWh Wärme.`};}},
  led:{titel:"LED mit Vorwiderstand",neu(){
    const ub=[5,9,12,24][zufall(0,3)], led=[["rot",2.0],["gelb",2.1],["grün",2.2],["blau",3.0],["weiß",3.2]][zufall(0,4)], i=[10,15,20][zufall(0,2)];
    const r=(ub-led[1])/(i/1000);
@@ -596,9 +834,9 @@ let T=null;
 function seiteTrainer(art){
  $("#app").innerHTML=`<div class="karte"><h2>Rechentrainer</h2>
   <p>Jede Aufgabe bekommt neue Zahlen. Schaffst du <b>3 richtige hintereinander</b>, gilt der Trainer als bestanden.</p>
-  <div class="tabs">${Object.entries(TRAINER).map(([k,v])=>`<button class="${k===(art||'led')?'aktiv':''}" onclick="seiteTrainer('${k}')">${v.titel}${(stand.trainer[k]||0)>=3?' ✓':''}</button>`).join("")}</div>
+  <div class="tabs">${Object.entries(TRAINER).map(([k,v])=>`<button class="${k===(art||'motor')?'aktiv':''}" onclick="seiteTrainer('${k}')">${v.titel}${(stand.trainer[k]||0)>=3?' ✓':''}</button>`).join("")}</div>
   <div id="tr"></div></div>`;
- trainerNeu(art||"led");
+ trainerNeu(art||"motor");
 }
 function trainerNeu(art){
  T={art,a:TRAINER[art].neu()};
@@ -619,19 +857,20 @@ function trainerPruefen(){
 /* ---------- Prüfungsmix ---------- */
 function seiteMix(){
  $("#app").innerHTML=`<div class="karte"><h2>Prüfungsmix</h2>
-  <p>12 zufällige Fragen aus allen Bereichen – wie in der Gesellenprüfung. Ziel: mindestens 80 %.</p>
+  <p>15 zufällige Fragen aus allen Bereichen – wie in der Gesellenprüfung. Ziel: mindestens 80 %.</p>
   <p class="klein">Bester Mix bisher: ${stand.quiz.mix!==undefined?stand.quiz.mix+' %':'noch keiner'}</p>
   <div id="mixq"><button class="btn" onclick="mixStart()">Prüfungsmix starten</button></div></div>`;
 }
 function mixStart(){
  const alle=[].concat(...Object.values(QUIZ));
- quizStart("mix",mischen(alle).slice(0,12),"mixq","mix");
+ quizStart("mix",mischen(alle).slice(0,15),"mixq","mix");
 }
 
-/* ---------- 8-Wochen-Plan ---------- */
+/* ---------- 4-Wochen-Plan (Seite) ---------- */
 function seitePlan(){
- $("#app").innerHTML=`<div class="karte"><h2>Dein 8-Wochen-Plan bis zur Prüfung</h2>
-  <p>Pro Woche ca. 2–3 kurze Einheiten à 20 Minuten. Hake ab, was du geschafft hast.</p>
+ $("#app").innerHTML=`<div class="karte"><h2>Dein 4-Wochen-Plan bis zur Prüfung</h2>
+  <p>Pro Woche ca. 4–5 kurze Einheiten à 20 Minuten. Hake ab, was du geschafft hast.</p>
+  <div class="info">📆 Den genauen Termin deiner Gesellenprüfung findest du auf der offiziellen Seite des Landesinnungsverbands: <a href="${PRUEFUNGSTERMINE}" target="_blank" rel="noopener">Prüfungstermine Gesellenprüfung (Elektroverband Bayern)</a></div>
   <table><tr><th style="width:80px">Woche</th><th style="width:150px">Thema</th><th>Das machst du</th><th>Challenge</th><th style="width:70px">erledigt</th></tr>
   ${PLAN.map((w,i)=>`<tr class="woche ${stand.plan[i]?'erledigt':''}"><td>${w[0]}</td><td><b>${w[1]}</b></td><td>${w[2]}</td><td>${sub(w[3])}</td>
    <td style="text-align:center"><input type="checkbox" ${stand.plan[i]?'checked':''} onchange="stand.plan[${i}]=this.checked;sichern();seitePlan()"></td></tr>`).join("")}
@@ -648,11 +887,12 @@ function seiteInfo(){
    <li><b>Karteikarten:</b> Frage lesen, Antwort laut sagen, Karte umdrehen. „Gewusst“ schiebt die Karte ein Fach weiter, „Nochmal“ zurück in Fach 1.</li>
    <li><b>Quiz:</b> Pro Bereich 10–14 Fragen (Auswahl, Rechnen, Zuordnen) in zufälliger Reihenfolge. Am Ende siehst du, ob du beim Nennen, Erklären oder Berechnen noch Lücken hast. Ab 80 % ist der Bereich auf der Lernlandkarte grün.</li>
    <li><b>Rechentrainer:</b> Immer neue Zahlen – rechne auf Papier mit Formel, Einsetzen und Einheit wie in der Prüfung.</li>
-   <li><b>Prüfungsmix:</b> In den letzten zwei Wochen mehrmals durchführen.</li>
+   <li><b>Prüfungsmix:</b> In der letzten Woche mehrmals durchführen.</li>
    <li><b>Fehlersuche:</b> Störungsfälle wie im Kundendienst – erst überlegen, dann Karte umdrehen.</li>
    <li><b>Challenge:</b> Jede Woche eine kleine Aufgabe für Betrieb oder Zuhause. Hake die Woche im Plan ab, dann kommt die nächste.</li>
   </ol>
   <div class="hinweis">Dein Fortschritt wird nur auf diesem Gerät im Browser gespeichert. Es werden keine Namen oder persönlichen Daten erfasst. Hilfsmittel wie in der Prüfung: Tabellenbuch, Formelsammlung, Taschenrechner.</div>
+  <div class="info" style="margin-top:10px">📆 Offizielle Prüfungstermine: <a href="${PRUEFUNGSTERMINE}" target="_blank" rel="noopener">Termine Gesellenprüfung – Elektroverband Bayern</a></div>
   <p><button class="btn zweit" onclick="if(confirm('Wirklich alles zurücksetzen?')){stand={quiz:{},fach:{},plan:{},trainer:{}};sichern();zeige('start')}">Fortschritt zurücksetzen</button></p>
  </div>`;
 }
