@@ -1,6 +1,6 @@
 # Prüfungsfit EEG 13
 
-Lernseite zur Vorbereitung auf die Gesellenprüfung Informationselektroniker (EEG 13), gestaltet im Layout des Staatlichen Beruflichen Schulzentrums Bamberg, Abteilung Elektrotechnik.
+Lernseite zur Vorbereitung auf die Gesellenprüfung Elektroniker/-in für Energie- und Gebäudetechnik (EEG 13), gestaltet im Layout des Staatlichen Beruflichen Schulzentrums Bamberg, Abteilung Elektrotechnik.
 
 Bereiche: Lernlandkarte mit Karteikarten (3 Fächer) und Quiz je Thema, Rechentrainer mit Zufallswerten, Prüfungsmix, 8-Wochen-Plan.
 
